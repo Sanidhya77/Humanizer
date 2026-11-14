@@ -19,6 +19,9 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 - `package.json` makes the repo a pi package. Its `pi.skills` entry points at the repo root so pi loads the root `SKILL.md`. Do not add a `version` field; pi installs from git.
 - `agents/openai.yaml` holds the display name, short description, and default prompt for OpenAI-compatible agents.
 - `scripts/validate-package.py` checks package files and shared values.
+- `references/local-tools.md` is the working loop for the local tools. `SKILL.md` points to it, so tool detail does not use the word budget.
+- `mcp-server/` holds the local MCP tools (Python). Run `pytest mcp-server/tests` after changing them.
+- `docs/edit-budget.md` records the test behind the edit budget. Update it when the budgets in `mcp-server/src/humanizer_mcp/change.py` change.
 
 ## Rules for changes
 

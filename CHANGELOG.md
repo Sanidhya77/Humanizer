@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.1.0
+
+This release is the first from the fork at `Sanidhya77/Humanizer`. It adds the local tools in `mcp-server/` and changes how much the skill rewrites a writer's own draft.
+
+- **Edit budget.** A writer's own draft is now edited inside its sentences: errors and AI patterns are fixed where they appear, and sentences are not rebuilt, merged or reordered. In a small GPTZero test (`docs/edit-budget.md`), drafts edited this way stayed "Human" and the same drafts with rebuilt sentences were classed "AI". The full rewrite process still applies to AI-written text.
+- New tool `measure_change`: reports the share of characters reworded per paragraph, the share of the final words that are the writer's own, and which sentences were rebuilt. Spelling fixes are counted separately and do not use the budget. Budgets: 12% (`light`) and 20% (`normal`) per paragraph.
+- New tools `read_docx_paragraphs` and `rewrite_docx`: replace the text of edited paragraphs in a copy of a .docx and keep its styles, headings, tables and layout. The original file is never overwritten.
+- `check_meaning`, `check_voice`, `compare_to_voice` and `measure_change` accept file paths, so long documents no longer have to be pasted. `check_meaning` takes `also_allowed` for facts the writer added in the session.
+- For AI-written drafts, the skill asks the writer a few specific questions and uses their answers almost word for word. It no longer implies that rewriting makes such text human-written.
+- The loop no longer rewrites sentences to lower the local detector score. `score_text` is an optional estimate and does not predict GPTZero or any other commercial detector.
+- Register ranges are limits, not targets: text inside them is left alone.
+- Fixed: measured academic registers defaulted to `medium` voice strength instead of `light`.
+- Fixed: one-line lead-ins under headings no longer trigger the "paragraphs are thin" check.
+- `SKILL.md` is back under the 5,500-word limit. The tool loop moved to `references/local-tools.md`.
+- Install commands and plugin manifests now point at `Sanidhya77/Humanizer`.
+
 ## 4.0.0
 
 - The skill no longer forbids adding facts. Where the text is generic, it now adds a specific detail it knows to be true. It still keeps every claim the original made and treats a lost or changed claim as an error. This reverses the no-invention rule from 2.9.0. Patterns 14 and 17 follow the same change.

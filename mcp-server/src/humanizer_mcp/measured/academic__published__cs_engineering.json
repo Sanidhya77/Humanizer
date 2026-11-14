@@ -1,0 +1,134 @@
+{
+ "name": "academic:published:cs_engineering",
+ "label": "academic:published:cs_engineering",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.215
+  ],
+  "avg_paragraph_words": [
+   60,
+   180
+  ],
+  "avg_sentence_words": [
+   18.496,
+   27.544
+  ],
+  "boosters_per_1k": [
+   1.95,
+   7.039
+  ],
+  "colons_per_1k": [
+   0.326,
+   7.991
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.424
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   1.217
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   2.249,
+   9.92
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   4.26
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   5.837,
+   25.889
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.162,
+   0.508
+  ],
+  "question_share": [
+   0.0,
+   0.015
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   3.59
+  ],
+  "sentence_length_cv": [
+   0.415,
+   0.622
+  ],
+  "short_sentence_share": [
+   0.031,
+   0.138
+  ],
+  "we_our_per_1k": [
+   0.0,
+   26.036
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.005
+  ]
+ },
+ "guide": [
+  "Concise and evidence-led; every claim scoped to what was tested.",
+  "Section conventions: passive common in methods, active in introduction and discussion.",
+  "'We' is normal in papers; single-author theses often use 'this thesis' or the passive instead.",
+  "Hedge less than in soft fields: report numbers plainly, hedge only explanations.",
+  "Units, versions and exact figures carry the argument; parentheses for definitions and units are normal."
+ ],
+ "built_from": [
+  "arxiv_2006.09167v2.txt",
+  "arxiv_2006.13987v1.txt",
+  "arxiv_2006.15463v1.txt",
+  "arxiv_2006.16368v1.txt",
+  "arxiv_2006.16686v2.txt",
+  "arxiv_2006.16744v1.txt",
+  "arxiv_2006.16767v3.txt",
+  "arxiv_2006.16831v1.txt",
+  "arxiv_2006.16921v1.txt",
+  "arxiv_2006.16940v1.txt",
+  "arxiv_2006.16953v1.txt",
+  "arxiv_2006.16993v2.txt",
+  "arxiv_2007.00059v1.txt",
+  "arxiv_2007.00104v1.txt",
+  "arxiv_2007.00127v1.txt",
+  "arxiv_2007.00156v4.txt",
+  "arxiv_2211.14382v1.txt",
+  "arxiv_2211.15631v2.txt",
+  "arxiv_2211.15733v1.txt",
+  "arxiv_2211.15741v1.txt",
+  "arxiv_2211.15751v3.txt",
+  "arxiv_2211.15844v2.txt",
+  "arxiv_2211.15959v1.txt",
+  "arxiv_2211.16001v2.txt",
+  "arxiv_2211.16035v2.txt",
+  "arxiv_2211.16051v1.txt",
+  "arxiv_2211.16082v2.txt",
+  "arxiv_2211.16117v1.txt",
+  "arxiv_2211.16227v1.txt",
+  "arxiv_2211.16416v1.txt",
+  "arxiv_2211.16490v1.txt",
+  "arxiv_2211.16587v3.txt"
+ ],
+ "texts": 32,
+ "n_texts": 32
+}

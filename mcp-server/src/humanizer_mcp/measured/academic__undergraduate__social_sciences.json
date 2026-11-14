@@ -1,0 +1,115 @@
+{
+ "name": "academic:undergraduate:social_sciences",
+ "label": "academic:undergraduate:social_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.473
+  ],
+  "avg_paragraph_words": [
+   57.0,
+   288.6
+  ],
+  "avg_sentence_words": [
+   18.67,
+   33.43
+  ],
+  "boosters_per_1k": [
+   1.058,
+   8.642
+  ],
+  "colons_per_1k": [
+   0.0,
+   11.275
+  ],
+  "contractions_per_1k": [
+   0.0,
+   10.461
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   8.756
+  ],
+  "exclamation_share": [
+   0.0,
+   0.015
+  ],
+  "hedges_per_1k": [
+   2.88,
+   15.0
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   20.031
+  ],
+  "nominalizations_per_1k": [
+   25,
+   100.767
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   39.021
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7.182
+  ],
+  "passive_share": [
+   0.181,
+   0.649
+  ],
+  "question_share": [
+   0.0,
+   0.055
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   18.814
+  ],
+  "sentence_length_cv": [
+   0.327,
+   0.843
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.153
+  ],
+  "we_our_per_1k": [
+   0.0,
+   11.676
+  ],
+  "you_your_per_1k": [
+   0.0,
+   5.511
+  ]
+ },
+ "guide": [
+  "Formal but not dense; sentences mostly 17-26 words.",
+  "Thesis-style signposting ('This chapter...', 'The third chapter...') is normal and expected.",
+  "Claims tied to sources; hedge interpretations, not measured facts.",
+  "Active voice dominates; 'I' is accepted in many venues (especially qualitative work).",
+  "Hedge more than in hard sciences: claims are interpretive and contestable."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_bitstreams_99b7f845-3f4b-45aa-9e36-cbff043fcfdd_download.txt",
+  "dl.tufts.edu_downloads_h702qj79c_filename_nz806b25c.pdf.txt",
+  "dl.tufts.edu_downloads_rv043635w_filename_gf06gg34b.pdf.txt",
+  "dl.tufts.edu_downloads_wh247493q_filename_rn301c209.pdf.txt",
+  "essay.utwente.nl_fileshare_file_75754_Turkstra_BA_BMS.pdf.txt",
+  "essay.utwente.nl_fileshare_file_78932_Bachelor_20Thesis_20Lisa_20Minio_20.pdf.txt",
+  "essay.utwente.nl_fileshare_file_78956_Sarah_20Krone_BA_BMS.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8946339_file_8946356.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8977756_file_8977759.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8994696_file_8994697.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstreams_1fba70ea-84e5-449b-bcb3-23063db97c95_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_4ae7c0a7-5780-4bcc-8dca-4425dc6fa96b_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_bcdbded3-4322-4686-92da-5ad4de5cefc8_download.txt"
+ ],
+ "texts": 13,
+ "n_texts": 13
+}

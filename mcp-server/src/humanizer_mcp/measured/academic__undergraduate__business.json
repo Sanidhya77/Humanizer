@@ -1,0 +1,110 @@
+{
+ "name": "academic:undergraduate:business",
+ "label": "academic:undergraduate:business",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.253
+  ],
+  "avg_paragraph_words": [
+   54.83,
+   181.67
+  ],
+  "avg_sentence_words": [
+   16.12,
+   26.68
+  ],
+  "boosters_per_1k": [
+   2.252,
+   8.468
+  ],
+  "colons_per_1k": [
+   0.0,
+   5.747
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.935
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   4.609
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   5.141,
+   15.089
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   6.248
+  ],
+  "nominalizations_per_1k": [
+   25,
+   97.0
+  ],
+  "parentheses_per_1k": [
+   4.834,
+   20.746
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7.126
+  ],
+  "passive_share": [
+   0.166,
+   0.454
+  ],
+  "question_share": [
+   0.0,
+   0.055
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   1.947
+  ],
+  "sentence_length_cv": [
+   0.287,
+   0.563
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.153
+  ],
+  "we_our_per_1k": [
+   0.0,
+   3.212
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.671
+  ]
+ },
+ "guide": [
+  "Formal but not dense; sentences mostly 17-26 words.",
+  "Thesis-style signposting ('This chapter...', 'The third chapter...') is normal and expected.",
+  "Claims tied to sources; hedge interpretations, not measured facts.",
+  "Marketing and management papers hedge heavily; practical implications sections are expected.",
+  "Avoid sales language even when discussing products or firms."
+ ],
+ "built_from": [
+  "local_Backman_Ville.txt",
+  "local_General_perception_of_AI_and_impacts_on_the_financial_sector_in_Finland_-_.txt",
+  "local_Karen_Molkanen_THESIS.txt",
+  "local_Manigault_Cassandre.txt",
+  "local_Orlova_Valeriya.txt",
+  "local_Thesis_-_Guoda_Mozeryte.txt",
+  "local_Thesis_Final_Ville_Lahtinen_1504403.txt",
+  "local_Vilkko_Iira.txt"
+ ],
+ "texts": 8,
+ "n_texts": 8
+}

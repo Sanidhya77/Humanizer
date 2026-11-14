@@ -1,0 +1,108 @@
+{
+ "name": "academic:masters:business",
+ "label": "academic:masters:business",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.132
+  ],
+  "avg_paragraph_words": [
+   60,
+   249.78
+  ],
+  "avg_sentence_words": [
+   18.87,
+   26.43
+  ],
+  "boosters_per_1k": [
+   1.389,
+   8.361
+  ],
+  "colons_per_1k": [
+   0.0,
+   7.779
+  ],
+  "contractions_per_1k": [
+   0.0,
+   1.683
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   1.148
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   3.271,
+   17.419
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   9.951
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   9.539,
+   27.311
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.184,
+   0.616
+  ],
+  "question_share": [
+   0.0,
+   0.045
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   10.941
+  ],
+  "sentence_length_cv": [
+   0.391,
+   0.499
+  ],
+  "short_sentence_share": [
+   0.014,
+   0.086
+  ],
+  "we_our_per_1k": [
+   0.0,
+   6.266
+  ],
+  "you_your_per_1k": [
+   0.0,
+   1.797
+  ]
+ },
+ "guide": [
+  "Hedges are the most common stance marker at this level; use them on interpretations.",
+  "Explicit research questions and methodology justification.",
+  "Marketing and management papers hedge heavily; practical implications sections are expected.",
+  "Avoid sales language even when discussing products or firms."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_bitstream_123456789_37951_1_master_J_C3_A4rvinen_Mikko_2019.pd.txt",
+  "aaltodoc.aalto.fi_bitstreams_a061d57d-184f-4703-9aae-d71bf7ba04ed_download.txt",
+  "essay.utwente.nl_fileshare_file_74761_Brinkman_MA_BMS.pdf.txt",
+  "essay.utwente.nl_fileshare_file_74958_Hoekman_MA_BMS.pdf.txt",
+  "lutpub.lut.fi_bitstream_10024_160132_1_mastersthesis_vachaud_alix.pdf.txt",
+  "lutpub.lut.fi_bitstream_handle_10024_159564_Gradu_final_Laura_Dufva.pdf_sequence.txt",
+  "osuva.uwasa.fi_server_api_core_bitstreams_4c0e76ad-07cb-4022-b44c-65bd982bbe42_c.txt"
+ ],
+ "texts": 7,
+ "n_texts": 7
+}

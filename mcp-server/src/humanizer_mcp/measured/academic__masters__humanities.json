@@ -1,0 +1,117 @@
+{
+ "name": "academic:masters:humanities",
+ "label": "academic:masters:humanities",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   1.674
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   63.55,
+   332.95
+  ],
+  "avg_sentence_words": [
+   17.06,
+   36.74
+  ],
+  "boosters_per_1k": [
+   1.15,
+   16.03
+  ],
+  "colons_per_1k": [
+   0.0,
+   13.387
+  ],
+  "contractions_per_1k": [
+   0.0,
+   26.257
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   9.845
+  ],
+  "exclamation_share": [
+   0.0,
+   0.035
+  ],
+  "hedges_per_1k": [
+   3.581,
+   17.249
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   37.899
+  ],
+  "nominalizations_per_1k": [
+   25,
+   85
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   17.997
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   8.921
+  ],
+  "passive_share": [
+   0.035,
+   0.575
+  ],
+  "question_share": [
+   0.0,
+   0.165
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   5.621
+  ],
+  "sentence_length_cv": [
+   0.377,
+   0.893
+  ],
+  "short_sentence_share": [
+   0.02,
+   0.14
+  ],
+  "we_our_per_1k": [
+   0.0,
+   15.35
+  ],
+  "you_your_per_1k": [
+   0.0,
+   14.405
+  ]
+ },
+ "guide": [
+  "Hedges are the most common stance marker at this level; use them on interpretations.",
+  "Explicit research questions and methodology justification.",
+  "Longer, more varied sentences and paragraphs; argument carried in prose, not lists.",
+  "First person 'I' is normal; rhetorical questions are acceptable in moderation.",
+  "Quotations are analysed closely; hedging and boosting both mark the writer's position."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_server_api_core_bitstreams_62f81fbb-020f-400d-847c-1b4271ce28d.txt",
+  "aaltodoc.aalto.fi_server_api_core_bitstreams_89753847-a122-40e0-bae2-49164c8150f.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_d29d3227-4297-46d5-81e6-63f8.txt",
+  "dl.tufts.edu_downloads_0c483w650_filename_8g84n033f.pdf.txt",
+  "dl.tufts.edu_downloads_qz20t578x_filename_pg15bt293.pdf.txt",
+  "era.ed.ac.uk_bitstreams_3a410221-c04e-4104-a367-e90a4fad1fd9_download.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_cb6cfe0d-297c-42f7-8038-82e1a6c3352f_con.txt",
+  "local_Pickworth_Katharine_Master_s_Thesis.txt",
+  "lup.lub.lu.se_student-papers_record_8919598_file_8919600.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8945073_file_8945104.pdf.txt",
+  "osuva.uwasa.fi_server_api_core_bitstreams_337617c5-00c4-40a7-916d-cd1105295a16_c.txt",
+  "osuva.uwasa.fi_server_api_core_bitstreams_eb03cb8a-54b2-4a0d-b6f5-5d57196726f0_c.txt",
+  "uwspace.uwaterloo.ca_bitstream_handle_10012_14508_park_yeounjun.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstreams_4c862040-8983-4dd7-884a-58005b6cb082_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_77e27aae-8f23-41c1-8a2b-b8332156dec5_download.txt"
+ ],
+ "texts": 15,
+ "n_texts": 15
+}

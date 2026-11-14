@@ -1,0 +1,109 @@
+{
+ "name": "academic:undergraduate:humanities",
+ "label": "academic:undergraduate:humanities",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.287
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   43.14,
+   247.86
+  ],
+  "avg_sentence_words": [
+   18.23,
+   31.07
+  ],
+  "boosters_per_1k": [
+   2.633,
+   9.317
+  ],
+  "colons_per_1k": [
+   0.0,
+   14.47
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.124
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   10.505
+  ],
+  "exclamation_share": [
+   0.0,
+   0.015
+  ],
+  "hedges_per_1k": [
+   5.611,
+   12.319
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   15.28
+  ],
+  "nominalizations_per_1k": [
+   18.137,
+   80
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   25.025
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.132,
+   0.348
+  ],
+  "question_share": [
+   0.0,
+   0.035
+  ],
+  "semicolons_per_1k": [
+   0.392,
+   2.888
+  ],
+  "sentence_length_cv": [
+   0.382,
+   0.838
+  ],
+  "short_sentence_share": [
+   0.016,
+   0.184
+  ],
+  "we_our_per_1k": [
+   0.0,
+   9.531
+  ],
+  "you_your_per_1k": [
+   0.0,
+   14.587
+  ]
+ },
+ "guide": [
+  "Formal but not dense; sentences mostly 17-26 words.",
+  "Thesis-style signposting ('This chapter...', 'The third chapter...') is normal and expected.",
+  "Claims tied to sources; hedge interpretations, not measured facts.",
+  "Longer, more varied sentences and paragraphs; argument carried in prose, not lists.",
+  "First person 'I' is normal; rhetorical questions are acceptable in moderation.",
+  "Quotations are analysed closely; hedging and boosting both mark the writer's position."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_bitstreams_31a20bfb-2ded-4f6d-bd03-b05ed45241a7_download.txt",
+  "aaltodoc.aalto.fi_server_api_core_bitstreams_20b31177-ca22-4e36-8af4-552eee2c949.txt",
+  "dl.tufts.edu_downloads_6969zc098_filename_8623j8516.pdf.txt",
+  "dl.tufts.edu_downloads_z890s5259_filename_q524k097v.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8900739_file_8900740.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8986130_file_8986132.pdf.txt"
+ ],
+ "texts": 6,
+ "n_texts": 6
+}

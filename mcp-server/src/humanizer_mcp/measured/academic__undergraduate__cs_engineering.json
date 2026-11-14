@@ -1,0 +1,114 @@
+{
+ "name": "academic:undergraduate:cs_engineering",
+ "label": "academic:undergraduate:cs_engineering",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.222
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.264
+  ],
+  "avg_paragraph_words": [
+   59.72,
+   180
+  ],
+  "avg_sentence_words": [
+   14.69,
+   24.41
+  ],
+  "boosters_per_1k": [
+   1.593,
+   8.157
+  ],
+  "colons_per_1k": [
+   0.0,
+   5.203
+  ],
+  "contractions_per_1k": [
+   0.0,
+   2.717
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   1.342
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   3.0,
+   13.44
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   1.672
+  ],
+  "nominalizations_per_1k": [
+   21.461,
+   93.569
+  ],
+  "parentheses_per_1k": [
+   1.05,
+   6.21
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.3,
+   0.66
+  ],
+  "question_share": [
+   0.0,
+   0.015
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   1.881
+  ],
+  "sentence_length_cv": [
+   0.353,
+   0.557
+  ],
+  "short_sentence_share": [
+   0.015,
+   0.195
+  ],
+  "we_our_per_1k": [
+   0.0,
+   4.455
+  ],
+  "you_your_per_1k": [
+   0.0,
+   1.628
+  ]
+ },
+ "guide": [
+  "Formal but not dense; sentences mostly 17-26 words.",
+  "Thesis-style signposting ('This chapter...', 'The third chapter...') is normal and expected.",
+  "Claims tied to sources; hedge interpretations, not measured facts.",
+  "'We' is normal in papers; single-author theses often use 'this thesis' or the passive instead.",
+  "Hedge less than in soft fields: report numbers plainly, hedge only explanations.",
+  "Units, versions and exact figures carry the argument; parentheses for definitions and units are normal."
+ ],
+ "built_from": [
+  "digikogu.taltech.ee_en_Download_b6d8c0d8-b577-4d36-97d0-6d3b532eaca2.txt",
+  "dspace5.zcu.cz_bitstream_11025_44215_1_Thesis.pdf.txt",
+  "essay.utwente.nl_81970_1_Rump_BA_EEMCS.pdf.txt",
+  "essay.utwente.nl_89427_1_Anghel_BA_EEMCS.pdf.txt",
+  "fse.studenttheses.ub.rug.nl_27894_1_bCS_2022_RosemaR.pdf.txt",
+  "local_Acharya_Prakash_2019.txt",
+  "local_Ghimire_2020.txt",
+  "local_Hannonen_Metropolia_2017.txt",
+  "lup.lub.lu.se_student-papers_record_9092785_file_9092827.pdf.txt",
+  "odr.chalmers.se_bitstreams_c5f41a9d-71ac-457f-a862-368bc36cb217_download.txt",
+  "oss.cs.fau.de_wp-content_uploads_2021_11_thesis.pdf.txt"
+ ],
+ "texts": 11,
+ "n_texts": 11
+}

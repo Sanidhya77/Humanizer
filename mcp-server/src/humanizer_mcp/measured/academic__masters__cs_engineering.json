@@ -1,0 +1,109 @@
+{
+ "name": "academic:masters:cs_engineering",
+ "label": "academic:masters:cs_engineering",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   1.563
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.198
+  ],
+  "avg_paragraph_words": [
+   60,
+   180
+  ],
+  "avg_sentence_words": [
+   18.44,
+   26.36
+  ],
+  "boosters_per_1k": [
+   2.556,
+   6.564
+  ],
+  "colons_per_1k": [
+   0.0,
+   16.649
+  ],
+  "contractions_per_1k": [
+   0.0,
+   2.618
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   3.432
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   1.397,
+   10.673
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   4.191
+  ],
+  "nominalizations_per_1k": [
+   29.715,
+   95
+  ],
+  "parentheses_per_1k": [
+   1.21,
+   21.37
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.098,
+   0.842
+  ],
+  "question_share": [
+   0.0,
+   0.025
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   0.968
+  ],
+  "sentence_length_cv": [
+   0.417,
+   0.573
+  ],
+  "short_sentence_share": [
+   0.011,
+   0.119
+  ],
+  "we_our_per_1k": [
+   0.0,
+   36.247
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.913
+  ]
+ },
+ "guide": [
+  "Hedges are the most common stance marker at this level; use them on interpretations.",
+  "Explicit research questions and methodology justification.",
+  "'We' is normal in papers; single-author theses often use 'this thesis' or the passive instead.",
+  "Hedge less than in soft fields: report numbers plainly, hedge only explanations.",
+  "Units, versions and exact figures carry the argument; parentheses for definitions and units are normal."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_bitstreams_1d1ab505-3033-4b02-8ff7-50617eb7836b_download.txt",
+  "aaltodoc.aalto.fi_server_api_core_bitstreams_cf8f9189-6c6b-445a-9521-c0137e92536.txt",
+  "essay.utwente.nl_fileshare_file_74786_Tahir_MS_EEMCS.pdf.txt",
+  "essay.utwente.nl_fileshare_file_77365_Ahmad_MA_EEMCS.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8987929_file_8987933.pdf.txt",
+  "odr.chalmers.se_server_api_core_bitstreams_68ab32c3-8afc-4661-838c-95347ec7753d_.txt",
+  "odr.chalmers.se_server_api_core_bitstreams_8fc70e6c-f673-49b4-a865-00729bfa094e_.txt"
+ ],
+ "texts": 7,
+ "n_texts": 7
+}

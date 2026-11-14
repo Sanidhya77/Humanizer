@@ -1,0 +1,106 @@
+{
+ "name": "newsletter",
+ "label": "newsletter",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   0.594
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.005
+  ],
+  "avg_paragraph_words": [
+   15,
+   93.11
+  ],
+  "avg_sentence_words": [
+   12.64,
+   25.36
+  ],
+  "boosters_per_1k": [
+   0.248,
+   15.152
+  ],
+  "colons_per_1k": [
+   0.0,
+   6.446
+  ],
+  "contractions_per_1k": [
+   20.232,
+   40.728
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   13.09
+  ],
+  "exclamation_share": [
+   0.0,
+   0.121
+  ],
+  "hedges_per_1k": [
+   4.284,
+   23.556
+  ],
+  "i_me_my_per_1k": [
+   0.389,
+   67.121
+  ],
+  "nominalizations_per_1k": [
+   5,
+   40
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   15.477
+  ],
+  "participle_clauses_per_1k": [
+   0.0,
+   8
+  ],
+  "passive_share": [
+   0.019,
+   0.151
+  ],
+  "question_share": [
+   0.012,
+   0.108
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   1.914
+  ],
+  "sentence_length_cv": [
+   0.455,
+   0.875
+  ],
+  "short_sentence_share": [
+   0.078,
+   0.462
+  ],
+  "we_our_per_1k": [
+   0.0,
+   20.889
+  ],
+  "you_your_per_1k": [
+   7.912,
+   18.568
+  ]
+ },
+ "guide": [
+  "Written to one reader: 'you', direct, a clear single ask or takeaway."
+ ],
+ "built_from": [
+  "buttondown.com_czh_archive_water-music-is-growing-and-partnering-with-hot-pod.txt",
+  "garbageday.email_p_bigger-than-before.txt",
+  "garbageday.email_p_spider-not-republicn-disgrace-hhhhrgg.txt",
+  "heated.world_p_bill-gates-is-no-friend-to-the-climate.txt",
+  "mrm.substack.com_p_the-internet-personified-come-and.txt",
+  "notboring.co_p_per-my-last-e-mail-1.txt",
+  "notboring.co_p_per-my-last-e-mail-21.txt",
+  "simonowens.substack.com_p_substack-built-a-framework-for-how.txt"
+ ],
+ "texts": 8,
+ "n_texts": 8
+}

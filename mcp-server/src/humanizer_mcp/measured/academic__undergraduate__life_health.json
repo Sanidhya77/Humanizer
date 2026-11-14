@@ -1,0 +1,114 @@
+{
+ "name": "academic:undergraduate:life_health",
+ "label": "academic:undergraduate:life_health",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.242
+  ],
+  "avg_paragraph_words": [
+   59.05,
+   180
+  ],
+  "avg_sentence_words": [
+   17.66,
+   26.54
+  ],
+  "boosters_per_1k": [
+   1.798,
+   9.502
+  ],
+  "colons_per_1k": [
+   0.0,
+   5.164
+  ],
+  "contractions_per_1k": [
+   0.0,
+   13.761
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   1.529
+  ],
+  "exclamation_share": [
+   0.0,
+   0.015
+  ],
+  "hedges_per_1k": [
+   4.498,
+   16.402
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   23.331
+  ],
+  "nominalizations_per_1k": [
+   25,
+   90
+  ],
+  "parentheses_per_1k": [
+   5.848,
+   29.152
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7.686
+  ],
+  "passive_share": [
+   0.228,
+   0.612
+  ],
+  "question_share": [
+   0.0,
+   0.066
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   9.537
+  ],
+  "sentence_length_cv": [
+   0.366,
+   0.654
+  ],
+  "short_sentence_share": [
+   0.018,
+   0.162
+  ],
+  "we_our_per_1k": [
+   0.0,
+   5.753
+  ],
+  "you_your_per_1k": [
+   0.0,
+   5.049
+  ]
+ },
+ "guide": [
+  "Formal but not dense; sentences mostly 17-26 words.",
+  "Thesis-style signposting ('This chapter...', 'The third chapter...') is normal and expected.",
+  "Claims tied to sources; hedge interpretations, not measured facts.",
+  "Structured reporting (IMRaD); passive common in methods.",
+  "Cautious causal language: 'was associated with', not 'caused', unless the design supports it."
+ ],
+ "built_from": [
+  "dl.tufts.edu_downloads_5712mk21d_filename_sj139c48d.pdf.txt",
+  "dl.tufts.edu_downloads_k0698k41k_filename_c247f420f.pdf.txt",
+  "dl.tufts.edu_downloads_v118rr89w_filename_ng451v02m.pdf.txt",
+  "essay.utwente.nl_75567_1_Elling_BA_BMS.pdf.txt",
+  "essay.utwente.nl_fileshare_file_75164_Schr_C3_B6der_BA_Bahvioural_Management_and.txt",
+  "essay.utwente.nl_fileshare_file_78155_te_Mebel_BA_HPT.pdf.txt",
+  "fse.studenttheses.ub.rug.nl_15124_1_BIO_BC_2017_Annika_Noordink.pdf.txt",
+  "fse.studenttheses.ub.rug.nl_15323_1_Bio_BC_2017_MartBartelds.pdf.txt",
+  "fse.studenttheses.ub.rug.nl_16626_1_Bachelor_20Thesis_20endversion_20s2687593.pd.txt",
+  "lup.lub.lu.se_student-papers_record_8911083_file_8911087.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8927259_file_8927260.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8937513_file_8937514.pdf.txt"
+ ],
+ "texts": 12,
+ "n_texts": 12
+}

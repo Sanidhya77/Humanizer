@@ -1,0 +1,113 @@
+{
+ "name": "forum_post",
+ "label": "forum_post",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.376
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   10,
+   115.67
+  ],
+  "avg_sentence_words": [
+   11.46,
+   29.94
+  ],
+  "boosters_per_1k": [
+   0.0,
+   20.702
+  ],
+  "colons_per_1k": [
+   0.0,
+   25.179
+  ],
+  "contractions_per_1k": [
+   0.0,
+   38.093
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   9.042
+  ],
+  "exclamation_share": [
+   0.0,
+   0.165
+  ],
+  "hedges_per_1k": [
+   3.455,
+   32.435
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   74.921
+  ],
+  "nominalizations_per_1k": [
+   0,
+   51.316
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   13.552
+  ],
+  "participle_clauses_per_1k": [
+   0.0,
+   8.294
+  ],
+  "passive_share": [
+   0.0,
+   0.898
+  ],
+  "question_share": [
+   0.0,
+   0.209
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   17.743
+  ],
+  "sentence_length_cv": [
+   0.256,
+   0.904
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.572
+  ],
+  "we_our_per_1k": [
+   0.0,
+   20.999
+  ],
+  "you_your_per_1k": [
+   0.0,
+   80.619
+  ]
+ },
+ "guide": [
+  "Answer first, then how you know; casual tone, personal experience welcome.",
+  "No headings or bold labels in a short answer."
+ ],
+ "built_from": [
+  "se_academia_102699.txt",
+  "se_academia_119395.txt",
+  "se_academia_92903.txt",
+  "se_history_30388.txt",
+  "se_history_31154.txt",
+  "se_history_49651.txt",
+  "se_softwareengineering_341594.txt",
+  "se_softwareengineering_369168.txt",
+  "se_softwareengineering_402273.txt",
+  "se_workplace_145712.txt",
+  "se_workplace_93717.txt",
+  "se_writers_27225.txt",
+  "se_writers_37680.txt",
+  "se_writers_38988.txt"
+ ],
+ "texts": 14,
+ "n_texts": 14
+}

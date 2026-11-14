@@ -1,0 +1,122 @@
+{
+ "name": "academic:published:business",
+ "label": "academic:published:business",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   60,
+   180
+  ],
+  "avg_sentence_words": [
+   20.63,
+   28.67
+  ],
+  "boosters_per_1k": [
+   3.111,
+   5.979
+  ],
+  "colons_per_1k": [
+   0.387,
+   4.983
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.231
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   3.212
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   5.469,
+   15.561
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   1.694
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   9.082,
+   29.338
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.11,
+   0.47
+  ],
+  "question_share": [
+   0.0,
+   0.025
+  ],
+  "semicolons_per_1k": [
+   1.494,
+   9.846
+  ],
+  "sentence_length_cv": [
+   0.392,
+   0.608
+  ],
+  "short_sentence_share": [
+   0.013,
+   0.097
+  ],
+  "we_our_per_1k": [
+   0.185,
+   18.245
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.77
+  ]
+ },
+ "guide": [
+  "Concise and evidence-led; every claim scoped to what was tested.",
+  "Section conventions: passive common in methods, active in introduction and discussion.",
+  "Marketing and management papers hedge heavily; practical implications sections are expected.",
+  "Avoid sales language even when discussing products or firms."
+ ],
+ "built_from": [
+  "journals.plos.org_plosone_article_id_10.1371_journal.pone.0212091.txt",
+  "journals.plos.org_plosone_article_id_10.1371_journal.pone.0225706.txt",
+  "link.springer.com_article_10.1186_s13731-017-0063-2.txt",
+  "link.springer.com_article_10.1186_s13731-017-0064-1.txt",
+  "link.springer.com_article_10.1186_s13731-018-0098-z.txt",
+  "management-aims.com_index.php_mgmt_article_download_3863_9558.txt",
+  "management-aims.com_index.php_mgmt_article_download_3867_9561_26852.txt",
+  "management-aims.com_index.php_mgmt_article_download_4254_10022_28424.txt",
+  "oa_W2131816657.txt",
+  "oa_W2474476572.txt",
+  "oa_W2588008928.txt",
+  "oa_W2603785580.txt",
+  "oa_W2770414254.txt",
+  "oa_W2904649625.txt",
+  "oa_W2944847255.txt",
+  "oa_W2979906316.txt",
+  "oa_W4247573850.txt",
+  "oa_W948640695.txt",
+  "oa_W974480840.txt",
+  "scielo.br_j_bar_a_PXjQLz5ztxPCFnQz5W37q5Q_lang_en.txt",
+  "scielo.br_j_rbgn_a_BCcLDqFh9hyfVbctCFNsRys_lang_en.txt"
+ ],
+ "texts": 21,
+ "n_texts": 21
+}

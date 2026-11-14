@@ -1,0 +1,115 @@
+{
+ "name": "academic:phd:business",
+ "label": "academic:phd:business",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.198
+  ],
+  "avg_paragraph_words": [
+   60,
+   200
+  ],
+  "avg_sentence_words": [
+   13.46,
+   31.94
+  ],
+  "boosters_per_1k": [
+   1.463,
+   9.467
+  ],
+  "colons_per_1k": [
+   0.0,
+   63.768
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.025
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   2.541
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   5.425,
+   13.045
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   18.062
+  ],
+  "nominalizations_per_1k": [
+   30,
+   117.724
+  ],
+  "parentheses_per_1k": [
+   6.965,
+   80.345
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.099,
+   0.471
+  ],
+  "question_share": [
+   0.0,
+   0.025
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   10.517
+  ],
+  "sentence_length_cv": [
+   0.402,
+   0.738
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.361
+  ],
+  "we_our_per_1k": [
+   0.0,
+   17.306
+  ],
+  "you_your_per_1k": [
+   0.0,
+   3.256
+  ]
+ },
+ "guide": [
+  "More metadiscourse than a master's: map the argument, position against the literature.",
+  "Careful, calibrated claims: hedge interpretations, state results plainly.",
+  "Marketing and management papers hedge heavily; practical implications sections are expected.",
+  "Avoid sales language even when discussing products or firms."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_bitstream_123456789_21528_1_isbn9789526069029.pdf.txt",
+  "aaltodoc.aalto.fi_bitstreams_3a51d3bd-92e5-4eb4-9312-ff5b16207b04_download.txt",
+  "aaltodoc.aalto.fi_bitstreams_f0229055-9cec-4980-874f-7780985694b4_download.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_03bcaa87-d1d5-470d-858a-4256.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_216863b1-d640-4c82-808a-c483.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_ebb89266-58f3-4119-b869-4a1c.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_07501ae9-c5a5-43ba-9012-4a9f73a0e506_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_86595174-2596-4be0-a802-231778d106f3_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_fff4ac95-7b9e-4316-adb4-0b803b5719c8_con.txt",
+  "osuva.uwasa.fi_server_api_core_bitstreams_b004fd60-9c0a-4056-a8a6-96051d82a98b_c.txt",
+  "osuva.uwasa.fi_server_api_core_bitstreams_da3f0cb7-164c-4e4f-b167-584ef0fb82d1_c.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_13034237_thesis_G_Kaffka.pdf.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_162072478_Proefschrift_Annelies_Geerts_2019.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_278553965_thesis_E_Weesie.pdf.txt"
+ ],
+ "texts": 14,
+ "n_texts": 14
+}

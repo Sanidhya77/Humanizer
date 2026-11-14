@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "humanizer-mcp"
+version = "0.2.0"
+description = "Local MCP tools for the Humanizer skill: edit budget, register and voice checks, meaning check, .docx editing"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "mcp>=1.10,<2",
+    "numpy>=1.24",
+    "transformers>=4.40",
+    "torch>=2.2",
+    "python-docx>=1.1",
+]
+
+[project.optional-dependencies]
+# only needed for scripts/fetch_corpus.py (downloading texts to build registers)
+corpus = ["pdfminer.six>=20231228", "pypdf>=4.0", "trafilatura>=1.8"]
+
+[project.scripts]
+humanizer-mcp = "humanizer_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# registers measured from real pre-AI texts (statistics only, no text)
+humanizer_mcp = ["measured/*.json"]
+
+# CPU-only PyTorch (much smaller download, no NVIDIA libraries).
+# Used automatically by `uv sync` / `uv run`.
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

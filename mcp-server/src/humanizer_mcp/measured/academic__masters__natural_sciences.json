@@ -1,0 +1,116 @@
+{
+ "name": "academic:masters:natural_sciences",
+ "label": "academic:masters:natural_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.143
+  ],
+  "avg_paragraph_words": [
+   21.4,
+   203.8
+  ],
+  "avg_sentence_words": [
+   17.74,
+   31.66
+  ],
+  "boosters_per_1k": [
+   0.933,
+   8.937
+  ],
+  "colons_per_1k": [
+   0.0,
+   57.904
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.55
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   3.542
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   2.933,
+   16.937
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   6.127
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   67.653
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.226,
+   0.874
+  ],
+  "question_share": [
+   0.0,
+   0.025
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   13.904
+  ],
+  "sentence_length_cv": [
+   0.374,
+   0.806
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.262
+  ],
+  "we_our_per_1k": [
+   0.0,
+   16.731
+  ],
+  "you_your_per_1k": [
+   0.0,
+   1.496
+  ]
+ },
+ "guide": [
+  "Hedges are the most common stance marker at this level; use them on interpretations.",
+  "Explicit research questions and methodology justification.",
+  "Passive voice is standard in methods; active 'we' is accepted elsewhere.",
+  "Hedge interpretations of mechanisms; state observations directly."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_bitstreams_80c90db0-6373-4a1b-9d7b-95fb3acd0b36_download.txt",
+  "aaltodoc.aalto.fi_bitstreams_be4b18c6-29e5-47d5-a18a-c35259406225_download.txt",
+  "aaltodoc.aalto.fi_bitstreams_dd415be1-08f4-4037-a6aa-79b6b68053f9_download.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_1945fbaf-1ea9-4687-94f2-3293.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_2f9ad213-237f-4e6c-82bf-d6fe.txt",
+  "dl.tufts.edu_downloads_bg257t14q_filename_gb19fj85c.pdf.txt",
+  "dl.tufts.edu_downloads_ft849323z_filename_1v53k9552.pdf.txt",
+  "dl.tufts.edu_downloads_mw22vj18z_filename_wp988x28z.pdf.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_44a7fa56-2d0c-4f59-b59c-96ad61a02a6a_con.txt",
+  "essay.utwente.nl_74552_1_Herrebrugh_2C_20R.C._201235710_20_openbaar.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8990303_file_8990304.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8996109_file_8996110.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstream_10012_15174_3_Kotibhaskar_Nikhil.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstream_handle_10012_14796_Jellicoe_Katia.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstreams_65333f66-4bc9-404f-8a8e-e240fe76a8ec_download.txt"
+ ],
+ "texts": 15,
+ "n_texts": 15
+}

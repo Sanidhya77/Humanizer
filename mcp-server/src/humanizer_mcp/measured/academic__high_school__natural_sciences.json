@@ -1,0 +1,109 @@
+{
+ "name": "academic:high_school:natural_sciences",
+ "label": "academic:high_school:natural_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.242
+  ],
+  "avg_paragraph_words": [
+   45,
+   140
+  ],
+  "avg_sentence_words": [
+   19.1,
+   23.9
+  ],
+  "boosters_per_1k": [
+   1.161,
+   5.829
+  ],
+  "colons_per_1k": [
+   1.075,
+   3.655
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.286
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   0.506
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   9.19,
+   14.35
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   1.1
+  ],
+  "nominalizations_per_1k": [
+   15,
+   73.218
+  ],
+  "parentheses_per_1k": [
+   9.464,
+   25.376
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.373,
+   0.697
+  ],
+  "question_share": [
+   0.0,
+   0.015
+  ],
+  "semicolons_per_1k": [
+   0.699,
+   5.391
+  ],
+  "sentence_length_cv": [
+   0.419,
+   0.671
+  ],
+  "short_sentence_share": [
+   0.053,
+   0.137
+  ],
+  "we_our_per_1k": [
+   2.501,
+   9.689
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.253
+  ]
+ },
+ "guide": [
+  "Plain, direct sentences; mostly 12-20 words.",
+  "A clear thesis statement and topic sentences; some first person ('I argue') is normal in essays.",
+  "Real students state opinions firmly; a few boosters are fine, heavy hedging is not typical.",
+  "Simple vocabulary over technical nouns; avoid stacked abstractions.",
+  "Passive voice is standard in methods; active 'we' is accepted elsewhere.",
+  "Hedge interpretations of mechanisms; state observations directly."
+ ],
+ "built_from": [
+  "emerginginvestigators.org_issues_1.txt",
+  "emerginginvestigators.org_issues_2.txt",
+  "emerginginvestigators.org_issues_5.txt",
+  "emerginginvestigators.org_issues_6.txt",
+  "emerginginvestigators.org_issues_7.txt",
+  "emerginginvestigators.org_issues_8.txt"
+ ],
+ "texts": 6,
+ "n_texts": 6
+}

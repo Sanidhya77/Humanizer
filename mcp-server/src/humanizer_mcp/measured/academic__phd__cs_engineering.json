@@ -1,0 +1,110 @@
+{
+ "name": "academic:phd:cs_engineering",
+ "label": "academic:phd:cs_engineering",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.495
+  ],
+  "avg_paragraph_words": [
+   60,
+   200
+  ],
+  "avg_sentence_words": [
+   18.84,
+   25.56
+  ],
+  "boosters_per_1k": [
+   3.279,
+   7.611
+  ],
+  "colons_per_1k": [
+   0.0,
+   24.06
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.784
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   2.585
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   4.866,
+   12.714
+  ],
+  "i_me_my_per_1k": [
+   0.45,
+   8.13
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   0.298,
+   35.722
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.19,
+   0.55
+  ],
+  "question_share": [
+   0.0,
+   0.035
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   10.285
+  ],
+  "sentence_length_cv": [
+   0.394,
+   0.706
+  ],
+  "short_sentence_share": [
+   0.027,
+   0.183
+  ],
+  "we_our_per_1k": [
+   0.0,
+   20.173
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.035
+  ]
+ },
+ "guide": [
+  "More metadiscourse than a master's: map the argument, position against the literature.",
+  "Careful, calibrated claims: hedge interpretations, state results plainly.",
+  "'We' is normal in papers; single-author theses often use 'this thesis' or the passive instead.",
+  "Hedge less than in soft fields: report numbers plainly, hedge only explanations.",
+  "Units, versions and exact figures carry the argument; parentheses for definitions and units are normal."
+ ],
+ "built_from": [
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_2ff373b8-c0d3-4f79-a50b-36f0.txt",
+  "era.ed.ac.uk_bitstream_handle_1842_31478_Konecny2017.pdf.txt",
+  "era.ed.ac.uk_bitstream_handle_1842_36394_Papamakarios2019.pdf_isAllowed_y_sequen.txt",
+  "local_Westmijze_Twente_2018.txt",
+  "repository.cam.ac.uk_bitstreams_9ab6a37f-d5fa-4702-ad54-93561baefdaf_download.txt",
+  "research.chalmers.se_publication_502662_file_502662_Fulltext.pdf.txt",
+  "research.chalmers.se_publication_505892_file_505892_Fulltext.pdf.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_160907949_thesis_W_Oortwijn.pdf.txt"
+ ],
+ "texts": 8,
+ "n_texts": 8
+}

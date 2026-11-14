@@ -1,0 +1,116 @@
+{
+ "name": "academic:published:economics",
+ "label": "Published research article - Economics, finance",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.121
+  ],
+  "avg_paragraph_words": [
+   57.71,
+   180
+  ],
+  "avg_sentence_words": [
+   13.29,
+   33.81
+  ],
+  "boosters_per_1k": [
+   1.368,
+   7.872
+  ],
+  "colons_per_1k": [
+   0.0,
+   27.555
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.121
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   10.824
+  ],
+  "exclamation_share": [
+   0.0,
+   0.015
+  ],
+  "hedges_per_1k": [
+   2.531,
+   16.439
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   25.332
+  ],
+  "nominalizations_per_1k": [
+   30,
+   105.28
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   109.994
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.062,
+   0.518
+  ],
+  "question_share": [
+   0.0,
+   0.015
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   7.205
+  ],
+  "sentence_length_cv": [
+   0.313,
+   0.877
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.416
+  ],
+  "we_our_per_1k": [
+   0.0,
+   29.912
+  ],
+  "you_your_per_1k": [
+   0.0,
+   3.762
+  ]
+ },
+ "guide": [
+  "Concise and evidence-led; every claim scoped to what was tested.",
+  "Section conventions: passive common in methods, active in introduction and discussion.",
+  "Marketing and management papers hedge heavily; practical implications sections are expected.",
+  "Avoid sales language even when discussing products or firms."
+ ],
+ "built_from": [
+  "arxiv_1912.09814v1.txt",
+  "arxiv_1912.10813v1.txt",
+  "arxiv_1912.11250v1.txt",
+  "arxiv_1912.11665v2.txt",
+  "arxiv_1912.12113v2.txt",
+  "arxiv_1912.12213v7.txt",
+  "arxiv_1912.12351v1.txt",
+  "arxiv_1912.12527v1.txt",
+  "arxiv_1912.12571v2.txt",
+  "arxiv_1912.12611v1.txt",
+  "arxiv_1912.12864v4.txt",
+  "arxiv_1912.12867v2.txt",
+  "arxiv_1912.12940v1.txt",
+  "arxiv_1912.13081v1.txt",
+  "arxiv_2001.00478v3.txt"
+ ],
+ "texts": 15,
+ "n_texts": 15
+}

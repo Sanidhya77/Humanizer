@@ -1,0 +1,117 @@
+{
+ "name": "academic:masters:life_health",
+ "label": "academic:masters:life_health",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.143
+  ],
+  "avg_paragraph_words": [
+   57.95,
+   206.15
+  ],
+  "avg_sentence_words": [
+   17.06,
+   31.94
+  ],
+  "boosters_per_1k": [
+   1.011,
+   9.999
+  ],
+  "colons_per_1k": [
+   0.0,
+   11.232
+  ],
+  "contractions_per_1k": [
+   0.0,
+   6.633
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   2.871
+  ],
+  "exclamation_share": [
+   0.0,
+   0.11
+  ],
+  "hedges_per_1k": [
+   2.469,
+   25.521
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   8.152
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   5.016,
+   45.624
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.292,
+   0.868
+  ],
+  "question_share": [
+   0.0,
+   0.025
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   8.378
+  ],
+  "sentence_length_cv": [
+   0.349,
+   0.841
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.33
+  ],
+  "we_our_per_1k": [
+   0.0,
+   11.484
+  ],
+  "you_your_per_1k": [
+   0.0,
+   4.532
+  ]
+ },
+ "guide": [
+  "Hedges are the most common stance marker at this level; use them on interpretations.",
+  "Explicit research questions and methodology justification.",
+  "Structured reporting (IMRaD); passive common in methods.",
+  "Cautious causal language: 'was associated with', not 'caused', unless the design supports it."
+ ],
+ "built_from": [
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_61a48ff6-6010-45a8-aca9-025d.txt",
+  "dl.tufts.edu_downloads_cr56nc57x_filename_bk128p18v.pdf.txt",
+  "dl.tufts.edu_downloads_rj430g74c_filename_r781wt57s.pdf.txt",
+  "dl.tufts.edu_downloads_tm70n6807_filename_kk91fz59j.pdf.txt",
+  "era.ed.ac.uk_bitstreams_388e07ce-1978-4de4-a591-bbfda173e45b_download.txt",
+  "era.ed.ac.uk_bitstreams_b7c823fa-d401-4cf9-9780-00a48ff598ef_download.txt",
+  "era.ed.ac.uk_bitstreams_f6e7516c-356b-438d-9762-85ec4e154997_download.txt",
+  "essay.utwente.nl_fileshare_file_74404_Final_thesis_SietskevanderLeest.pdf.txt",
+  "essay.utwente.nl_fileshare_file_76697_Witjes_MA_TNW.pdf.txt",
+  "essay.utwente.nl_fileshare_file_79587_Slatman_MA_BMS.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8936750_file_8936752.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8955158_file_8955159.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_9001138_file_9001139.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstream_10012_13682_1_Lad_Uma.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstream_handle_10012_10512_McCullough_James.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstream_handle_10012_13846_Cormier_Brittany.pdf.txt"
+ ],
+ "texts": 16,
+ "n_texts": 16
+}

@@ -1,0 +1,112 @@
+{
+ "name": "academic:high_school:social_sciences",
+ "label": "academic:high_school:social_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.005
+  ],
+  "avg_paragraph_words": [
+   45,
+   140
+  ],
+  "avg_sentence_words": [
+   12.28,
+   38.92
+  ],
+  "boosters_per_1k": [
+   0.0,
+   16.181
+  ],
+  "colons_per_1k": [
+   0.0,
+   7.436
+  ],
+  "contractions_per_1k": [
+   0.0,
+   25.883
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   12.639
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   0.0,
+   28.347
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   27.247
+  ],
+  "nominalizations_per_1k": [
+   15,
+   58.086
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   9.79
+  ],
+  "participle_clauses_per_1k": [
+   0.0,
+   9.911
+  ],
+  "passive_share": [
+   0.0,
+   1.0
+  ],
+  "question_share": [
+   0.0,
+   0.077
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   23.331
+  ],
+  "sentence_length_cv": [
+   0.267,
+   0.903
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.231
+  ],
+  "we_our_per_1k": [
+   0.0,
+   17.006
+  ],
+  "you_your_per_1k": [
+   0.0,
+   11.957
+  ]
+ },
+ "guide": [
+  "Plain, direct sentences; mostly 12-20 words.",
+  "A clear thesis statement and topic sentences; some first person ('I argue') is normal in essays.",
+  "Real students state opinions firmly; a few boosters are fine, heavy hedging is not typical.",
+  "Simple vocabulary over technical nouns; avoid stacked abstractions.",
+  "Active voice dominates; 'I' is accepted in many venues (especially qualitative work).",
+  "Hedge more than in hard sciences: claims are interpretive and contestable."
+ ],
+ "built_from": [
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_09_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_10_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_11_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_12_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_13_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_16_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_17_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_18_editorial-contest-winn.txt",
+  "archive.nytimes.com_learning.blogs.nytimes.com_2016_05_19_editorial-contest-winn.txt"
+ ],
+ "texts": 9,
+ "n_texts": 9
+}

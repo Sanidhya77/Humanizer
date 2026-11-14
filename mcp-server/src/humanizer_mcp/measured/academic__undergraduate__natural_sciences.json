@@ -1,0 +1,114 @@
+{
+ "name": "academic:undergraduate:natural_sciences",
+ "label": "academic:undergraduate:natural_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   1.804
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.005
+  ],
+  "avg_paragraph_words": [
+   54.77,
+   201.53
+  ],
+  "avg_sentence_words": [
+   15.18,
+   33.42
+  ],
+  "boosters_per_1k": [
+   0.0,
+   9.833
+  ],
+  "colons_per_1k": [
+   0.0,
+   13.093
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.993
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   0.22
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   2.246,
+   15.854
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   17.266
+  ],
+  "nominalizations_per_1k": [
+   25,
+   90
+  ],
+  "parentheses_per_1k": [
+   4.023,
+   36.147
+  ],
+  "participle_clauses_per_1k": [
+   0.0,
+   9.613
+  ],
+  "passive_share": [
+   0.257,
+   1.0
+  ],
+  "question_share": [
+   0.0,
+   0.005
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   15.719
+  ],
+  "sentence_length_cv": [
+   0.3,
+   1.14
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.219
+  ],
+  "we_our_per_1k": [
+   0.0,
+   32.274
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.429
+  ]
+ },
+ "guide": [
+  "Formal but not dense; sentences mostly 17-26 words.",
+  "Thesis-style signposting ('This chapter...', 'The third chapter...') is normal and expected.",
+  "Claims tied to sources; hedge interpretations, not measured facts.",
+  "Passive voice is standard in methods; active 'we' is accepted elsewhere.",
+  "Hedge interpretations of mechanisms; state observations directly."
+ ],
+ "built_from": [
+  "dl.tufts.edu_downloads_6969zc13v_filename_bk128n82p.pdf.txt",
+  "dl.tufts.edu_downloads_pg15bt30v_filename_9306tb29h.pdf.txt",
+  "dl.tufts.edu_downloads_q524k209n_filename_w6634g71w.pdf.txt",
+  "essay.utwente.nl_fileshare_file_67537_Bachelorverslag_20William_20Elferink_20s12.txt",
+  "essay.utwente.nl_fileshare_file_73711_Fokkema_BA_EEMCS.pdf.txt",
+  "essay.utwente.nl_fileshare_file_78737_vanVliet_BA_EWI_TNW.pdf.txt",
+  "fse.studenttheses.ub.rug.nl_20124_1_BSc_Project_Report_Timon_Beeftink_Final.pdf.txt",
+  "fse.studenttheses.ub.rug.nl_20192_1_VicentCipriaAlberoBlanquerS3807487_FinalBach.txt",
+  "fse.studenttheses.ub.rug.nl_20342_1_BRP_Thesis_Piter_Annema.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8917433_file_8917444.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8980932_file_8980968.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8986191_file_8986192.pdf.txt"
+ ],
+ "texts": 12,
+ "n_texts": 12
+}

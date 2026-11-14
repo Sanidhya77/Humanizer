@@ -1,0 +1,109 @@
+{
+ "name": "blog_personal",
+ "label": "blog_personal",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   1.694
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.429
+  ],
+  "avg_paragraph_words": [
+   20,
+   90
+  ],
+  "avg_sentence_words": [
+   11.62,
+   25.78
+  ],
+  "boosters_per_1k": [
+   0.914,
+   12.746
+  ],
+  "colons_per_1k": [
+   0.0,
+   5.489
+  ],
+  "contractions_per_1k": [
+   1.039,
+   35.131
+  ],
+  "em_dashes_per_1k": [
+   0.041,
+   6.149
+  ],
+  "exclamation_share": [
+   0.0,
+   0.121
+  ],
+  "hedges_per_1k": [
+   5.731,
+   21.199
+  ],
+  "i_me_my_per_1k": [
+   17.853,
+   98.817
+  ],
+  "nominalizations_per_1k": [
+   1.306,
+   45.514
+  ],
+  "parentheses_per_1k": [
+   0.231,
+   6.819
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   8
+  ],
+  "passive_share": [
+   0.002,
+   0.098
+  ],
+  "question_share": [
+   0.0,
+   0.132
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   0.957
+  ],
+  "sentence_length_cv": [
+   0.391,
+   0.619
+  ],
+  "short_sentence_share": [
+   0.012,
+   0.348
+  ],
+  "we_our_per_1k": [
+   0.0,
+   31.449
+  ],
+  "you_your_per_1k": [
+   0.0,
+   38.354
+  ]
+ },
+ "guide": [
+  "First person, concrete sensory and logistical detail (times, prices, names of places).",
+  "Short paragraphs; occasional one-line paragraph for a beat, not as a slogan.",
+  "Contractions and asides are natural here."
+ ],
+ "built_from": [
+  "calnewport.com_on-analog-social-media.txt",
+  "calnewport.com_on-simple-productivity-systems-and-complex-plans.txt",
+  "girlseekingpurpose.com_reflections-early-2019.txt",
+  "legalnomads.com_9-years.txt",
+  "mrmoneymustache.com_2017_04_11_mr-money-mustache-turns-six-years-old.txt",
+  "nathanbarry.com_2017-review.txt",
+  "nathanbarry.com_2018-review.txt",
+  "stevepavlina.com_blog_2017_09_easiest-income-stream.txt",
+  "traveltomtom.net_about_about_first-year-of-a-travel-blogger-2017.txt"
+ ],
+ "texts": 9,
+ "n_texts": 9
+}

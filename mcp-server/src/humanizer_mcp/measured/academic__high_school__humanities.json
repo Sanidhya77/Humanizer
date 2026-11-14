@@ -1,0 +1,113 @@
+{
+ "name": "academic:high_school:humanities",
+ "label": "academic:high_school:humanities",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.495
+  ],
+  "avg_paragraph_words": [
+   65,
+   311.99
+  ],
+  "avg_sentence_words": [
+   17.18,
+   33.02
+  ],
+  "boosters_per_1k": [
+   4.794,
+   15.426
+  ],
+  "colons_per_1k": [
+   0.075,
+   3.735
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.839
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   9.383
+  ],
+  "exclamation_share": [
+   0.0,
+   0.025
+  ],
+  "hedges_per_1k": [
+   5.571,
+   17.559
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   8.113
+  ],
+  "nominalizations_per_1k": [
+   10,
+   69.102
+  ],
+  "parentheses_per_1k": [
+   7.653,
+   24.057
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7.778
+  ],
+  "passive_share": [
+   0.07,
+   0.43
+  ],
+  "question_share": [
+   0.0,
+   0.025
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   10.274
+  ],
+  "sentence_length_cv": [
+   0.381,
+   0.609
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.131
+  ],
+  "we_our_per_1k": [
+   0.0,
+   7.018
+  ],
+  "you_your_per_1k": [
+   0.0,
+   7.227
+  ]
+ },
+ "guide": [
+  "Plain, direct sentences; mostly 12-20 words.",
+  "A clear thesis statement and topic sentences; some first person ('I argue') is normal in essays.",
+  "Real students state opinions firmly; a few boosters are fine, heavy hedging is not typical.",
+  "Simple vocabulary over technical nouns; avoid stacked abstractions.",
+  "Longer, more varied sentences and paragraphs; argument carried in prose, not lists.",
+  "First person 'I' is normal; rhetorical questions are acceptable in moderation.",
+  "Quotations are analysed closely; hedging and boosting both mark the writer's position."
+ ],
+ "built_from": [
+  "jasna.org_publications-2_essay-contest-winning-entries_2016_education-as-social-.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2016_education-in-emma-th.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2016_emmas-education-chal.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2017_a-biracial-fanny-pri.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2017_affectionate-satire-.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2017_mansfield-park-the-m.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2018-essay-contest_colon.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2018-essay-contest_kowals.txt",
+  "jasna.org_publications-2_essay-contest-winning-entries_2018-essay-contest_krist.txt"
+ ],
+ "texts": 9,
+ "n_texts": 9
+}

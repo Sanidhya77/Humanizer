@@ -1,0 +1,120 @@
+{
+ "name": "academic:masters:social_sciences",
+ "label": "academic:masters:social_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.495
+  ],
+  "avg_paragraph_words": [
+   60,
+   219.94
+  ],
+  "avg_sentence_words": [
+   15.32,
+   36.68
+  ],
+  "boosters_per_1k": [
+   1.468,
+   9.052
+  ],
+  "colons_per_1k": [
+   0.0,
+   10.682
+  ],
+  "contractions_per_1k": [
+   0.0,
+   5.016
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   9.713
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   3.723,
+   22.767
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   18.876
+  ],
+  "nominalizations_per_1k": [
+   27.127,
+   98.323
+  ],
+  "parentheses_per_1k": [
+   2.904,
+   34.896
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.076,
+   0.604
+  ],
+  "question_share": [
+   0.0,
+   0.055
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   13.679
+  ],
+  "sentence_length_cv": [
+   0.34,
+   0.58
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.219
+  ],
+  "we_our_per_1k": [
+   0.0,
+   8.617
+  ],
+  "you_your_per_1k": [
+   0.0,
+   5.137
+  ]
+ },
+ "guide": [
+  "Hedges are the most common stance marker at this level; use them on interpretations.",
+  "Explicit research questions and methodology justification.",
+  "Active voice dominates; 'I' is accepted in many venues (especially qualitative work).",
+  "Hedge more than in hard sciences: claims are interpretive and contestable."
+ ],
+ "built_from": [
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_31c52b5e-0811-44aa-9322-b528.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_69e726d0-2bee-4c3f-9990-267f.txt",
+  "dl.tufts.edu_downloads_b27747718_filename_6h4416114.pdf.txt",
+  "dl.tufts.edu_downloads_gh93h9629_filename_sq87c615s.pdf.txt",
+  "dl.tufts.edu_downloads_z890s579m_filename_9306t964w.pdf.txt",
+  "era.ed.ac.uk_bitstreams_2416dbce-08d2-4e6f-b469-9accf2d6175a_download.txt",
+  "era.ed.ac.uk_bitstreams_70d3f4d8-6a3b-4d7c-a02e-65924304afe3_download.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_9d344f8e-597b-473a-84ed-940566abed6f_con.txt",
+  "essay.utwente.nl_fileshare_file_75047_Dijkstra_MA_BMS.pdf.pdf.txt",
+  "essay.utwente.nl_fileshare_file_76892_Van_20Dijk_20__20MSc_20__20BMS.pdf.txt",
+  "essay.utwente.nl_fileshare_file_79005_Master_20thesis_20J._20Beeks.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8940433_file_8940518.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8983343_file_8983352.pdf.txt",
+  "lup.lub.lu.se_student-papers_record_8988278_file_8988283.pdf.txt",
+  "osuva.uwasa.fi_server_api_core_bitstreams_ccfb4ba7-060e-489b-85b2-46f8cc311504_c.txt",
+  "repository.cam.ac.uk_bitstreams_aa147803-952b-4d91-b1e3-29940b70f487_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_2099206d-05e7-4dd8-9f83-4a466e9f6ea0_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_ae110d72-6778-49f9-bfc5-f57f3d1bdd9f_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_bcbb8062-d979-4fa2-a1bc-100be4285c9c_download.txt"
+ ],
+ "texts": 19,
+ "n_texts": 19
+}

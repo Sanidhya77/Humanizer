@@ -1,0 +1,117 @@
+{
+ "name": "academic:published:natural_sciences",
+ "label": "academic:published:natural_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   60,
+   180
+  ],
+  "avg_sentence_words": [
+   16.54,
+   30.46
+  ],
+  "boosters_per_1k": [
+   1.68,
+   11.52
+  ],
+  "colons_per_1k": [
+   0.0,
+   8.602
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.429
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   3.036
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   0.0,
+   15.774
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   2.64
+  ],
+  "nominalizations_per_1k": [
+   29.942,
+   114.158
+  ],
+  "parentheses_per_1k": [
+   5.375,
+   30.875
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.181,
+   0.889
+  ],
+  "question_share": [
+   0.0,
+   0.099
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   7.392
+  ],
+  "sentence_length_cv": [
+   0.322,
+   0.778
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.143
+  ],
+  "we_our_per_1k": [
+   0.0,
+   17.534
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.005
+  ]
+ },
+ "guide": [
+  "Concise and evidence-led; every claim scoped to what was tested.",
+  "Section conventions: passive common in methods, active in introduction and discussion.",
+  "Passive voice is standard in methods; active 'we' is accepted elsewhere.",
+  "Hedge interpretations of mechanisms; state observations directly."
+ ],
+ "built_from": [
+  "plos_journal.pone.0145101.txt",
+  "plos_journal.pone.0145680.txt",
+  "plos_journal.pone.0146578.txt",
+  "plos_journal.pone.0149882.txt",
+  "plos_journal.pone.0151821.txt",
+  "plos_journal.pone.0155470.txt",
+  "plos_journal.pone.0164071.txt",
+  "plos_journal.pone.0164653.txt",
+  "plos_journal.pone.0165348.txt",
+  "plos_journal.pone.0171883.txt",
+  "plos_journal.pone.0175584.txt",
+  "plos_journal.pone.0178851.txt",
+  "plos_journal.pone.0182826.txt",
+  "plos_journal.pone.0201135.txt",
+  "plos_journal.pone.0204749.txt",
+  "plos_journal.pone.0214584.txt"
+ ],
+ "texts": 16,
+ "n_texts": 16
+}

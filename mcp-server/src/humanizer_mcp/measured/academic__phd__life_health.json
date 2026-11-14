@@ -1,0 +1,115 @@
+{
+ "name": "academic:phd:life_health",
+ "label": "academic:phd:life_health",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.341
+  ],
+  "avg_paragraph_words": [
+   60,
+   200
+  ],
+  "avg_sentence_words": [
+   14.21,
+   38.09
+  ],
+  "boosters_per_1k": [
+   1.533,
+   7.137
+  ],
+  "colons_per_1k": [
+   0.0,
+   15.968
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.74
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   2.86
+  ],
+  "exclamation_share": [
+   0.0,
+   0.055
+  ],
+  "hedges_per_1k": [
+   3.536,
+   16.424
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   26.275
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   6.677,
+   38.393
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.082,
+   0.778
+  ],
+  "question_share": [
+   0.0,
+   0.025
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   10.07
+  ],
+  "sentence_length_cv": [
+   0.334,
+   1.006
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.371
+  ],
+  "we_our_per_1k": [
+   0.0,
+   5.81
+  ],
+  "you_your_per_1k": [
+   0.0,
+   1.463
+  ]
+ },
+ "guide": [
+  "More metadiscourse than a master's: map the argument, position against the literature.",
+  "Careful, calibrated claims: hedge interpretations, state results plainly.",
+  "Structured reporting (IMRaD); passive common in methods.",
+  "Cautious causal language: 'was associated with', not 'caused', unless the design supports it."
+ ],
+ "built_from": [
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_2a741eec-7a84-4704-b8cc-2fed.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_2d3ef2de-45a8-489d-83ff-df9e.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_3582a8b0-b5ca-4d43-b0d0-2de1.txt",
+  "dl.tufts.edu_downloads_2801pt42p.txt",
+  "dl.tufts.edu_downloads_2f75rm40v_filename_wp988x432.pdf.txt",
+  "dl.tufts.edu_downloads_c247f4530_filename_2n49tc968.pdf.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_881797ed-6557-4e67-9ba1-92915765b1ca_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_d137ed79-86a7-4216-a4c1-4a944b7b0f03_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_fe214ae9-6752-4570-b442-28345bd86d54_con.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_264254495_Thesis_J_Held.pdf.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_283741263_Thesis_A_Karatsidis.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstreams_118226f1-d31b-4388-a1e9-1ed4a728281f_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_cc86b92b-086a-4aa7-ad94-388b1cfebda1_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_dd9f9396-2730-4a5c-8da0-32b7503ae2c7_download.txt"
+ ],
+ "texts": 14,
+ "n_texts": 14
+}

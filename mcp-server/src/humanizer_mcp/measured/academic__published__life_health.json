@@ -1,0 +1,113 @@
+{
+ "name": "academic:published:life_health",
+ "label": "academic:published:life_health",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.209
+  ],
+  "avg_paragraph_words": [
+   45.1,
+   183.1
+  ],
+  "avg_sentence_words": [
+   17.54,
+   37.46
+  ],
+  "boosters_per_1k": [
+   1.085,
+   11.225
+  ],
+  "colons_per_1k": [
+   0.0,
+   6.638
+  ],
+  "contractions_per_1k": [
+   0.0,
+   2.255
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   1.023
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   4.945,
+   15.325
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   4.367
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   2.342,
+   26.078
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.141,
+   0.609
+  ],
+  "question_share": [
+   0.0,
+   0.035
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   13.64
+  ],
+  "sentence_length_cv": [
+   0.357,
+   0.753
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.11
+  ],
+  "we_our_per_1k": [
+   0.0,
+   13.398
+  ],
+  "you_your_per_1k": [
+   0.0,
+   1.606
+  ]
+ },
+ "guide": [
+  "Concise and evidence-led; every claim scoped to what was tested.",
+  "Section conventions: passive common in methods, active in introduction and discussion.",
+  "Structured reporting (IMRaD); passive common in methods.",
+  "Cautious causal language: 'was associated with', not 'caused', unless the design supports it."
+ ],
+ "built_from": [
+  "plos_journal.pone.0135338.txt",
+  "plos_journal.pone.0157545.txt",
+  "plos_journal.pone.0161603.txt",
+  "plos_journal.pone.0164947.txt",
+  "plos_journal.pone.0173230.txt",
+  "plos_journal.pone.0173411.txt",
+  "plos_journal.pone.0178644.txt",
+  "plos_journal.pone.0192115.txt",
+  "plos_journal.pone.0208442.txt",
+  "plos_journal.pone.0210192.txt",
+  "plos_journal.pone.0217057.txt",
+  "plos_journal.pone.0220109.txt"
+ ],
+ "texts": 12,
+ "n_texts": 12
+}

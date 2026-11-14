@@ -1,0 +1,112 @@
+{
+ "name": "academic:published:humanities",
+ "label": "academic:published:humanities",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   80,
+   240
+  ],
+  "avg_sentence_words": [
+   20.64,
+   33.36
+  ],
+  "boosters_per_1k": [
+   3.265,
+   8.965
+  ],
+  "colons_per_1k": [
+   0.0,
+   18.089
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.465
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   5.72
+  ],
+  "exclamation_share": [
+   0.0,
+   0.015
+  ],
+  "hedges_per_1k": [
+   3.887,
+   21.923
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   9.988
+  ],
+  "nominalizations_per_1k": [
+   25,
+   88.792
+  ],
+  "parentheses_per_1k": [
+   5.481,
+   33.309
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7.146
+  ],
+  "passive_share": [
+   0.223,
+   0.427
+  ],
+  "question_share": [
+   0.0,
+   0.045
+  ],
+  "semicolons_per_1k": [
+   0.42,
+   9.42
+  ],
+  "sentence_length_cv": [
+   0.383,
+   0.587
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.197
+  ],
+  "we_our_per_1k": [
+   0.004,
+   29.956
+  ],
+  "you_your_per_1k": [
+   0.0,
+   2.09
+  ]
+ },
+ "guide": [
+  "Concise and evidence-led; every claim scoped to what was tested.",
+  "Section conventions: passive common in methods, active in introduction and discussion.",
+  "Longer, more varied sentences and paragraphs; argument carried in prose, not lists.",
+  "First person 'I' is normal; rhetorical questions are acceptable in moderation.",
+  "Quotations are analysed closely; hedging and boosting both mark the writer's position."
+ ],
+ "built_from": [
+  "oa_W1608166496.txt",
+  "oa_W1995814878.txt",
+  "oa_W2237775352.txt",
+  "oa_W2315740750.txt",
+  "oa_W2395089532.txt",
+  "oa_W2535001570.txt",
+  "oa_W2604941166.txt",
+  "oa_W2780693696.txt",
+  "oa_W2786689981.txt",
+  "oa_W2793493211.txt"
+ ],
+ "texts": 10,
+ "n_texts": 10
+}

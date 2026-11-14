@@ -1,9 +1,54 @@
-# Humanizer 
+# Humanizer (register-aware fork)
 
-sponsored by [cfo.ai](https://cfo.ai)
+A fork of [blader/humanizer](https://github.com/blader/humanizer) that adds **local measurement tools**.
+The original skill tells the model *how* to rewrite. This fork adds an MCP server
+([`mcp-server/`](mcp-server/README.md)) that runs on your own computer, with no API key, and checks:
 
-[![GitHub stars](https://img.shields.io/github/stars/blader/humanizer?style=flat)](https://github.com/blader/humanizer/stargazers) [![skills.sh installs](https://skills.sh/b/blader/humanizer)](https://skills.sh/blader/humanizer) 
+- **How much was changed.** `measure_change` reports the share of your wording that was reworded,
+  paragraph by paragraph, and names every sentence that was rebuilt. Your own draft is edited inside
+  a budget (12% or 20% per paragraph). Spelling fixes do not count against it.
+- **Register.** Is the draft inside what is normal for this kind of writing? There are 34
+  registers measured from real pre-2020 texts: high school to published papers, across six
+  fields, plus blogs, newsletters and forum posts.
+  See [REGISTERS.md](mcp-server/REGISTERS.md).
+- **Meaning.** Did any number, citation, link, quote or name get dropped or invented?
+- **Voice (optional).** Learns your habits from your own writing and applies them only inside
+  the register, so your blog's contractions never end up in your thesis.
+- **Word files.** Edited paragraphs are written into a copy of your .docx. Styles, headings,
+  tables and layout stay as they were.
 
+**Quick start:** follow [mcp-server/README.md](mcp-server/README.md) (about 15 minutes on Windows),
+then ask Claude: *"Edit my draft lightly. Register: blog_technical."*
+
+### Why an edit budget
+
+In a small test on GPTZero ([docs/edit-budget.md](docs/edit-budget.md)), three human-written drafts
+were edited to three depths:
+
+| Edit | Share reworded | Rebuilt sentences | GPTZero |
+|---|---|---|---|
+| Light (errors only) | 6 to 11% | 0 | Human, 3 of 3 |
+| Middle (reworded in place) | 17 to 21% | 0 | Human, 3 of 3 |
+| Heavy (sentences rebuilt) | 36 to 41% | 4 to 5 | AI, 3 of 3 |
+
+The facts were the same in every version. Only the amount of rewording differed. So for a draft you
+wrote yourself, this fork fixes errors and AI patterns inside your sentences and does not rebuild them.
+The test is small (one writer, one detector, one day), so read the budget as a guide.
+
+### What this fork does not do
+
+- It does not make AI-written text human-written. Detectors are trained on rewritten AI text, and a
+  model rewording a model's draft is still a model's draft. For such a draft the skill removes the
+  patterns that read badly and asks you for what only you know: your example, your measurement, your
+  opinion, in your words.
+- It does not predict GPTZero, Turnitin or any other commercial detector. The built-in `score_text`
+  is an optional local estimate.
+- It does not decide what you must disclose. If a university, client or journal asks how a text was
+  written, describe it as what it is.
+
+Everything below this line is the original Humanizer documentation.
+
+---
 
 Humanizer makes AI-written text sound like a person wrote it, without changing what it says. It is built on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the guide Wikipedia editors use to catch AI-generated text, and it works in Claude Code, Codex, and any other agent that supports skills.
 
@@ -15,7 +60,7 @@ Humanizer makes AI-written text sound like a person wrote it, without changing w
 
 In a blind test, judges preferred Humanizer's rewrite over the original AI text 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
 
-Humanizer edits for human readers. It does not try to get past AI detectors, and detectors still flag most of its output.
+The original skill edits for human readers and does not target detectors. This fork keeps that aim and adds measurement: how much of your wording changed, whether the text fits its register, and whether every fact survived. No detector score is a guarantee, and detectors change often.
 
 ## The five strongest tells
 
@@ -36,22 +81,22 @@ Once installed, run it with `/humanizer`.
 ### Claude Code
 
 ```text
-/plugin marketplace add blader/humanizer
+/plugin marketplace add Sanidhya77/Humanizer
 /plugin install humanizer@humanizer
 ```
 
-The plugin needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add blader/humanizer --global --agent claude-code`.
+The plugin needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add Sanidhya77/Humanizer --global --agent claude-code`.
 
 ### Codex
 
 ```bash
-npx skills add blader/humanizer --global --agent codex
+npx skills add Sanidhya77/Humanizer --global --agent codex
 ```
 
 ### pi
 
 ```bash
-pi install git:github.com/blader/humanizer
+pi install git:github.com/Sanidhya77/Humanizer
 ```
 
 Add `-l` to install it only in the current project. `pi update --extensions` pulls new versions.
@@ -63,7 +108,7 @@ Download this repository as a ZIP (**Code → Download ZIP**) and upload it as a
 ### Other agents
 
 ```bash
-npx skills add blader/humanizer --global --agent '*'
+npx skills add Sanidhya77/Humanizer --global --agent '*'
 ```
 
 This installs Humanizer for every agent the Skills CLI supports, including Gemini CLI, GitHub Copilot, and Windsurf. Leave off `--global` in any command above to install it only in the current project. For an agent the Skills CLI does not know, copy `SKILL.md` into its skill folder.

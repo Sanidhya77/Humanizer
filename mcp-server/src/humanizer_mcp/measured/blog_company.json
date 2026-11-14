@@ -1,0 +1,110 @@
+{
+ "name": "blog_company",
+ "label": "blog_company",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   25,
+   100
+  ],
+  "avg_sentence_words": [
+   13.29,
+   35.01
+  ],
+  "boosters_per_1k": [
+   0.0,
+   9.24
+  ],
+  "colons_per_1k": [
+   0.0,
+   13.539
+  ],
+  "contractions_per_1k": [
+   0.0,
+   30.69
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   11.495
+  ],
+  "exclamation_share": [
+   0.0,
+   0.363
+  ],
+  "hedges_per_1k": [
+   0.0,
+   25.678
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   15.026
+  ],
+  "nominalizations_per_1k": [
+   14.203,
+   70.687
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   9.717
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   10.291
+  ],
+  "passive_share": [
+   0.023,
+   0.227
+  ],
+  "question_share": [
+   0.0,
+   0.209
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   2.277
+  ],
+  "sentence_length_cv": [
+   0.293,
+   0.617
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.264
+  ],
+  "we_our_per_1k": [
+   0.0,
+   83.193
+  ],
+  "you_your_per_1k": [
+   0.0,
+   47.927
+  ]
+ },
+ "guide": [
+  "'We' for the company, 'you' for the customer; concrete product facts over adjectives.",
+  "Brand style guides win over these ranges when they conflict."
+ ],
+ "built_from": [
+  "atlassian.com_blog_innovation_pitfalls-of-phrase-thats-not-my-job.txt",
+  "blog.dropbox.com_topics_product_announcing-dropbox-extensions-with-strategic-and.txt",
+  "blog.duolingo.com_how-weve-improved-the-duolingo-learning-experience-this-year-a.txt",
+  "blog.mozilla.org_futurereleases_2019_12_03_firefox-preview-beta-reaches-another-.txt",
+  "buffer.com_resources_buffers-evolution-and-expansion.txt",
+  "buffer.com_resources_year-in-review-2019.txt",
+  "news.airbnb.com_en-au_introducing-cooking-on-airbnb-experiences.txt",
+  "newsroom.spotify.com_2019-10-30_introducing-spotify-kids-a-new-standalone-app-fo.txt",
+  "pendo.io_pendo-blog_pendos-core-values-pt-1.txt",
+  "shopify.com_blog_Shopify-unite-2019.txt",
+  "shopify.com_news_shopify-unveils-new-innovations-to-transform-commerce-for-merch.txt"
+ ],
+ "texts": 11,
+ "n_texts": 11
+}

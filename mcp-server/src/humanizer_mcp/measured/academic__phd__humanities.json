@@ -1,0 +1,117 @@
+{
+ "name": "academic:phd:humanities",
+ "label": "academic:phd:humanities",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   1.929
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   80,
+   336.3
+  ],
+  "avg_sentence_words": [
+   18.84,
+   38.76
+  ],
+  "boosters_per_1k": [
+   3.389,
+   9.401
+  ],
+  "colons_per_1k": [
+   0.0,
+   12.5
+  ],
+  "contractions_per_1k": [
+   0.0,
+   6.127
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   6.441
+  ],
+  "exclamation_share": [
+   0.0,
+   0.015
+  ],
+  "hedges_per_1k": [
+   3.6,
+   17.16
+  ],
+  "i_me_my_per_1k": [
+   0.525,
+   11.745
+  ],
+  "nominalizations_per_1k": [
+   25,
+   85
+  ],
+  "parentheses_per_1k": [
+   2.879,
+   33.131
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.066,
+   0.594
+  ],
+  "question_share": [
+   0.0,
+   0.055
+  ],
+  "semicolons_per_1k": [
+   0.614,
+   8.006
+  ],
+  "sentence_length_cv": [
+   0.43,
+   0.79
+  ],
+  "short_sentence_share": [
+   0.012,
+   0.228
+  ],
+  "we_our_per_1k": [
+   0.0,
+   9.722
+  ],
+  "you_your_per_1k": [
+   0.0,
+   3.223
+  ]
+ },
+ "guide": [
+  "More metadiscourse than a master's: map the argument, position against the literature.",
+  "Careful, calibrated claims: hedge interpretations, state results plainly.",
+  "Longer, more varied sentences and paragraphs; argument carried in prose, not lists.",
+  "First person 'I' is normal; rhetorical questions are acceptable in moderation.",
+  "Quotations are analysed closely; hedging and boosting both mark the writer's position."
+ ],
+ "built_from": [
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_106ecca2-b223-40fd-81b4-9258.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_be543319-9562-4f2b-8b2a-4e41.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_cc3d796f-c130-4f78-89ab-ed16.txt",
+  "dl.tufts.edu_downloads_5138js54g.txt",
+  "dl.tufts.edu_downloads_6395wk68p_filename_9s161j42t.pdf.txt",
+  "dl.tufts.edu_downloads_st74d3169_filename_x920g826z.pdf.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_044dd617-0efe-43e8-aecc-41b7c0c26757_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_1c2d4a6f-03cf-49fa-8309-5346816d9f81_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_c5db1b3e-9536-4475-8ce7-dc4c1f004c65_con.txt",
+  "ris.utwente.nl_ws_files_112667674_Olya_Kudina_2019_The_Technological_Mediation_o.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_154051073_Dissertation_Ching_with_Cover.pdf.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_263847861_Thesis_Bas_de_Boer.pdf.txt",
+  "uwspace.uwaterloo.ca_bitstreams_28614185-1d51-4447-8e31-95127e67a2f5_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_4f9e9b7b-5a5a-41e2-b669-df5af7c89c05_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_bd2050e6-99ae-4263-bf01-f55ef6a0307b_download.txt"
+ ],
+ "texts": 15,
+ "n_texts": 15
+}

@@ -1,0 +1,117 @@
+{
+ "name": "academic:published:social_sciences",
+ "label": "academic:published:social_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.319
+  ],
+  "avg_paragraph_words": [
+   60,
+   180
+  ],
+  "avg_sentence_words": [
+   19.12,
+   27.28
+  ],
+  "boosters_per_1k": [
+   2.491,
+   7.999
+  ],
+  "colons_per_1k": [
+   0.0,
+   6.16
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.66
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   3.08
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   4.282,
+   20.098
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   14.938
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   2.743,
+   25.627
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.096,
+   0.624
+  ],
+  "question_share": [
+   0.0,
+   0.045
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   8.151
+  ],
+  "sentence_length_cv": [
+   0.365,
+   0.545
+  ],
+  "short_sentence_share": [
+   0.002,
+   0.098
+  ],
+  "we_our_per_1k": [
+   0.0,
+   22.126
+  ],
+  "you_your_per_1k": [
+   0.0,
+   2.442
+  ]
+ },
+ "guide": [
+  "Concise and evidence-led; every claim scoped to what was tested.",
+  "Section conventions: passive common in methods, active in introduction and discussion.",
+  "Active voice dominates; 'I' is accepted in many venues (especially qualitative work).",
+  "Hedge more than in hard sciences: claims are interpretive and contestable."
+ ],
+ "built_from": [
+  "plos_journal.pone.0127485.txt",
+  "plos_journal.pone.0130119.txt",
+  "plos_journal.pone.0147275.txt",
+  "plos_journal.pone.0150556.txt",
+  "plos_journal.pone.0156409.txt",
+  "plos_journal.pone.0170279.txt",
+  "plos_journal.pone.0170293.txt",
+  "plos_journal.pone.0191649.txt",
+  "plos_journal.pone.0192907.txt",
+  "plos_journal.pone.0198094.txt",
+  "plos_journal.pone.0202041.txt",
+  "plos_journal.pone.0203390.txt",
+  "plos_journal.pone.0210160.txt",
+  "plos_journal.pone.0212508.txt",
+  "plos_journal.pone.0222357.txt",
+  "plos_journal.pone.0224326.txt"
+ ],
+ "texts": 16,
+ "n_texts": 16
+}

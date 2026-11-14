@@ -7,7 +7,7 @@ description: |
   language, stock AI words, bold labels, or filler.
 license: MIT
 metadata:
-  version: "4.0.0"
+  version: "4.1.0"
 ---
 
 # Humanizer: remove AI writing patterns
@@ -53,6 +53,12 @@ Without a sample, take the voice from the kind of text. Blog posts, essays, opin
 **File mode.** When the user names a file, first read the whole current file from disk, even if you wrote it in this session. Read long files in chunks until every section has been covered. Run the full process but write only the final text to the file. Change prose only. Keep code blocks, inline code, commands, paths, YAML metadata, data, and link targets unchanged. Then give the user a short summary stating how many sections you reviewed and identifying any you could not cover. A partial pass must be reported as partial.
 
 **Embedded mode.** When another task uses this skill for a pull request, commit message, or document, return only the final text.
+
+## How much to change
+
+**The writer's own draft**: edit inside their sentences. Fix spelling, grammar and punctuation, and remove a pattern only where it appears, with the smallest change that removes it. Leave every other sentence as it is: no merging, splitting, reordering, or better synonyms. This overrides steps 2 and 4 above. If a sentence needs a full rewrite, offer your version as a suggestion. In a GPTZero test, drafts edited this way stayed "Human"; the same drafts with rebuilt sentences were classed "AI".
+
+**AI-written text**: run the full process above. It stays model-written, and a detector will usually say so. Only the writer's own content changes that: ask one specific question about each of the most generic paragraphs (at most one per 300 words, in one message) and use their answers almost word for word. Never invent an answer.
 
 ## A. Staging instead of stating
 
@@ -480,6 +486,14 @@ A model writes for a reader who shares no context, because that fits the widest 
 > Agreed, this is a workaround. I'd rather keep this PR account specific and open a separate ticket for the `MergeService` fix and the backfill.
 >
 > `MergeService` is shared code, so fixing it here means checking the merge flow for every account and backfilling the rows that are already wrong.
+
+## Register and voice
+
+First name the register: level and field for academic work, otherwise the platform. It decides what is acceptable, and its ranges are limits, not targets: leave text alone when it is inside them. A writer's voice applies only inside the register: a blogger's contractions stay out of their thesis. Never add punctuation or phrases just to match a profile.
+
+## Using the local tools
+
+If the Humanizer MCP tools are connected (`measure_change`, `check_voice`, `check_meaning`), read `references/local-tools.md` and follow its loop. After every round, run `measure_change` and return to the original wording wherever a paragraph is over budget or a sentence was rebuilt. Fix only what `check_voice` puts outside the register, run `check_meaning` before saving, and never reword a sentence to lower a detector score.
 
 ## When not to act
 

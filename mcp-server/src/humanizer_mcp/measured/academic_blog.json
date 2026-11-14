@@ -1,0 +1,108 @@
+{
+ "name": "academic_blog",
+ "label": "academic_blog",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.09
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.5
+  ],
+  "avg_paragraph_words": [
+   14.05,
+   155.05
+  ],
+  "avg_sentence_words": [
+   13.5,
+   31.5
+  ],
+  "boosters_per_1k": [
+   0.051,
+   9.399
+  ],
+  "colons_per_1k": [
+   0.0,
+   7.117
+  ],
+  "contractions_per_1k": [
+   0.0,
+   10.703
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   14.652
+  ],
+  "exclamation_share": [
+   0.0,
+   0.045
+  ],
+  "hedges_per_1k": [
+   7.375,
+   35.635
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   9.185
+  ],
+  "nominalizations_per_1k": [
+   17.944,
+   93.136
+  ],
+  "parentheses_per_1k": [
+   0.884,
+   11.756
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.045,
+   0.225
+  ],
+  "question_share": [
+   0.0,
+   0.715
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   5.357
+  ],
+  "sentence_length_cv": [
+   0.307,
+   0.823
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.286
+  ],
+  "we_our_per_1k": [
+   0.0,
+   58.667
+  ],
+  "you_your_per_1k": [
+   0.0,
+   24.794
+  ]
+ },
+ "guide": [
+  "A hybrid of article and journalism: the writer's own research, told more personally.",
+  "Fewer citations and hedges than the paper, more reader address and first person.",
+  "Keep every number and finding exactly as in the paper."
+ ],
+ "built_from": [
+  "behavioralscientist.org_one-size-doesnt-have-to-fit-all.txt",
+  "behavioralscientist.org_registered-reports-remove-pressure-on-researchers-to-get.txt",
+  "blogs.ucl.ac.uk_ioe_2019_09_18_seven-key-findings-about-teachers-working-hours.txt",
+  "blogs.worldbank.org_en_impactevaluations_policy-footprint-rcts.txt",
+  "brookings.edu_articles_estimating-the-economic-impact-of-a-wealth-tax.txt",
+  "brookings.edu_articles_what-emerging-research-says-about-the-promise-of-personal.txt",
+  "crookedtimber.org_2015_12_15_piketty-in-three-parts.txt",
+  "crookedtimber.org_2019_01_03_on-our-way-to-zero-net-emissions.txt"
+ ],
+ "texts": 8,
+ "n_texts": 8
+}

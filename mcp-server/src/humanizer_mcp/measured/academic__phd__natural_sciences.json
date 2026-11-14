@@ -1,0 +1,115 @@
+{
+ "name": "academic:phd:natural_sciences",
+ "label": "academic:phd:natural_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.198
+  ],
+  "avg_paragraph_words": [
+   0.0,
+   1304.16
+  ],
+  "avg_sentence_words": [
+   18.31,
+   31.39
+  ],
+  "boosters_per_1k": [
+   1.064,
+   8.936
+  ],
+  "colons_per_1k": [
+   0.0,
+   68.057
+  ],
+  "contractions_per_1k": [
+   0.0,
+   0.528
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   4.4
+  ],
+  "exclamation_share": [
+   0.0,
+   0.005
+  ],
+  "hedges_per_1k": [
+   1.688,
+   12.632
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   10.81
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   0.0,
+   80.868
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.183,
+   0.747
+  ],
+  "question_share": [
+   0.0,
+   0.015
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   17.16
+  ],
+  "sentence_length_cv": [
+   0.093,
+   3.777
+  ],
+  "short_sentence_share": [
+   0.0,
+   0.251
+  ],
+  "we_our_per_1k": [
+   0.0,
+   16.862
+  ],
+  "you_your_per_1k": [
+   0.0,
+   0.176
+  ]
+ },
+ "guide": [
+  "More metadiscourse than a master's: map the argument, position against the literature.",
+  "Careful, calibrated claims: hedge interpretations, state results plainly.",
+  "Passive voice is standard in methods; active 'we' is accepted elsewhere.",
+  "Hedge interpretations of mechanisms; state observations directly."
+ ],
+ "built_from": [
+  "aaltodoc.aalto.fi_bitstreams_663c2a58-1793-4d77-bfb4-d5fe0595bdbd_download.txt",
+  "aaltodoc.aalto.fi_bitstreams_b85075c1-1794-4a8f-a83e-544ba5ecd6f8_download.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_34e629df-40e5-4f96-bfc3-9fb3.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_852df437-a6da-4e70-8d82-ff43.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_a5cff4dc-c5c4-4291-a409-3a5b.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_07407971-e4d5-4fdc-89d8-ec07d7d220c5_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_117a0591-894e-4e37-be89-9c3a0a76b773_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_9ae1a2f0-71cc-4df5-8000-9e1a9163990c_con.txt",
+  "research.chalmers.se_publication_503837_file_503837_Fulltext.pdf.txt",
+  "research.chalmers.se_publication_509278_file_509278_Fulltext.pdf.txt",
+  "research.chalmers.se_publication_512192_file_512192_Fulltext.pdf.txt",
+  "ris.utwente.nl_ws_files_103953109_Thesis_Vishal_Metri_Twente.pdf.txt",
+  "ris.utwente.nl_ws_files_6045397_thesis_E_van_Geijn.pdf.txt",
+  "ris.utwente.nl_ws_files_6046029_thesis_N_Kumar.pdf.txt"
+ ],
+ "texts": 14,
+ "n_texts": 14
+}

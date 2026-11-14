@@ -1,0 +1,116 @@
+{
+ "name": "academic:phd:social_sciences",
+ "label": "academic:phd:social_sciences",
+ "kind": "measured",
+ "ranges": {
+  "ai_words_soft_per_1k": [
+   0.0,
+   2.5
+  ],
+  "ai_words_strong_per_1k": [
+   0.0,
+   0.231
+  ],
+  "avg_paragraph_words": [
+   60,
+   257.2
+  ],
+  "avg_sentence_words": [
+   22.46,
+   31.34
+  ],
+  "boosters_per_1k": [
+   2.274,
+   9.186
+  ],
+  "colons_per_1k": [
+   0.0,
+   15.465
+  ],
+  "contractions_per_1k": [
+   0.0,
+   3.615
+  ],
+  "em_dashes_per_1k": [
+   0.0,
+   8.941
+  ],
+  "exclamation_share": [
+   0.0,
+   0.015
+  ],
+  "hedges_per_1k": [
+   6.537,
+   21.813
+  ],
+  "i_me_my_per_1k": [
+   0.0,
+   15.39
+  ],
+  "nominalizations_per_1k": [
+   30,
+   95
+  ],
+  "parentheses_per_1k": [
+   2.291,
+   29.039
+  ],
+  "participle_clauses_per_1k": [
+   0,
+   7
+  ],
+  "passive_share": [
+   0.175,
+   0.595
+  ],
+  "question_share": [
+   0.0,
+   0.035
+  ],
+  "semicolons_per_1k": [
+   0.0,
+   14.893
+  ],
+  "sentence_length_cv": [
+   0.445,
+   0.745
+  ],
+  "short_sentence_share": [
+   0.023,
+   0.107
+  ],
+  "we_our_per_1k": [
+   0.0,
+   9.606
+  ],
+  "you_your_per_1k": [
+   0.0,
+   4.323
+  ]
+ },
+ "guide": [
+  "More metadiscourse than a master's: map the argument, position against the literature.",
+  "Careful, calibrated claims: hedge interpretations, state results plainly.",
+  "Active voice dominates; 'I' is accepted in many venues (especially qualitative work).",
+  "Hedge more than in hard sciences: claims are interpretive and contestable."
+ ],
+ "built_from": [
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_159b861e-f883-4601-94d4-c705.txt",
+  "api.repository.cam.ac.uk_server_api_core_bitstreams_7b27800c-253b-4628-b56a-5556.txt",
+  "dl.tufts.edu_downloads_2j62sh446_filename_k643bc62t.pdf.txt",
+  "dl.tufts.edu_downloads_9593v634c_filename_q237j4338.pdf.txt",
+  "dl.tufts.edu_downloads_x633fd86c_filename_9s161k23t.pdf.txt",
+  "era.ed.ac.uk_bitstream_handle_1842_25668_Major2016.pdf_sequence_1.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_0f6d4949-e045-4176-bebb-8279edfef9a0_con.txt",
+  "era.ed.ac.uk_server_api_core_bitstreams_d5866f31-8f41-4e81-b796-7bec99658448_con.txt",
+  "lup.lub.lu.se_search_files_51193967_Hylmo_2018_Disciplined_reasoning_Digital.pdf.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_25233602_Oostinga_Breaking_the_ice.pdf.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_6044579_thesis_E_Figee.pdf.txt",
+  "ris.utwente.nl_ws_portalfiles_portal_64134698_Van_den_Akker_2018._Ruling_the_Ref.txt",
+  "uwspace.uwaterloo.ca_bitstreams_0158a7ce-4a88-421b-8ece-6523578a51d7_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_122d6792-cffe-4387-9259-9150f9ae9dfa_download.txt",
+  "uwspace.uwaterloo.ca_bitstreams_9244d27d-678c-4a75-a17a-118de72d65c6_download.txt"
+ ],
+ "texts": 15,
+ "n_texts": 15
+}

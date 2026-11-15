@@ -22,7 +22,7 @@ from .change import BUDGETS, HEAVY_PCT, measure_change
 LEVELS = {
     "none": "No change",
     "copy_editing": "Language correction (spelling, grammar, punctuation)",
-    "language_revision": "Language revision (some wording changed for clarity)",
+    "language_revision": "Language revision (wording or sentence structure changed for clarity)",
     "substantial_rewriting": "Substantial rewriting by the tool",
     "generated_text": "Contains text written by the tool",
 }
@@ -36,6 +36,8 @@ def ai_use_statement(original: str, rewrite: str, tool_name: str = "Claude (Anth
     changed, writer = m["changed_pct"], m["writer_words_pct"]
     added_paragraphs = sum(1 for p in m["paragraphs_over_budget"] if p["status"] == "added")
     written_by_tool = s["new"] + s["rebuilt"]
+    sc = m["sentence_count"]
+    restructured = sc["joined_or_split"]
 
     if changed == 0 and m["corrections"] == 0:
         level = "none"
@@ -43,7 +45,7 @@ def ai_use_statement(original: str, rewrite: str, tool_name: str = "Claude (Anth
         level = "generated_text"
     elif s["rebuilt"] or changed >= HEAVY_PCT:
         level = "substantial_rewriting"
-    elif changed > BUDGETS["light"]:
+    elif changed > BUDGETS["light"] or restructured:
         level = "language_revision"
     else:
         level = "copy_editing"
@@ -57,10 +59,12 @@ def ai_use_statement(original: str, rewrite: str, tool_name: str = "Claude (Anth
             f"During the preparation of this work, {author} used {tool_name} to correct spelling, grammar and "
             f"punctuation in text {author} had written. The tool did not write or restructure any sentence. {check}")
     elif level == "language_revision":
+        structure = (f" Sentences were joined or split for readability ({sc['original']} became {sc['rewrite']})."
+                     if restructured else "")
         statement = (
             f"During the preparation of this work, {author} used {tool_name} to correct language errors and to "
-            f"improve the clarity of text {author} had written. About {round(changed)}% of the wording was changed "
-            f"and no sentence was written by the tool. {check}")
+            f"improve the clarity of text {author} had written. About {max(1, round(changed))}% of the wording was "
+            f"changed and no sentence was written by the tool.{structure} {check}")
     elif level == "substantial_rewriting":
         statement = (
             f"During the preparation of this work, {author} used {tool_name} to revise text {author} had written. "
@@ -91,6 +95,7 @@ def ai_use_statement(original: str, rewrite: str, tool_name: str = "Claude (Anth
             "writer_words_pct": writer,
             "corrections": m["corrections"],
             "sentences": s,
+            "sentence_count": sc,
             "paragraphs_added": added_paragraphs,
         },
         "limits": (

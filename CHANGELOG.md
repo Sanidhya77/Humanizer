@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.2.1
+
+Fixes found by running a 2,100-word master's report through the tools as a .docx.
+
+- `measure_change` now counts sentences before and after (`sentence_count`). Joining or splitting sentences keeps the words, so it barely moved `changed_pct`: 34 joins in the test showed as 1%. The advice now says when sentences were joined or split.
+- `ai_use_statement` no longer calls an edit "copy editing" when sentences were joined or split. It reports language revision and states how many sentences became how many.
+- `.docx`: the reference list (everything after a "Bibliography" or "References" heading), table captions and short labels such as title-page lines are locked. Before, a bibliography entry without a link and the lines of the title page were offered for editing.
+- `check_quality` counts repeated sentence openers inside one paragraph only. It used to report a run that crossed several sections.
+
 ## 4.2.0
 
 Changes after a review of other humanizer projects and recent detection research (`docs/related-work.md`).

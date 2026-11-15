@@ -358,6 +358,7 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
     o_tokens: list[str] = []
     r_tokens: list[str] = []
     tot_orig_words = 0
+    n_sent_o = n_sent_r = 0
 
     for oi, ni in _align_paragraphs(olds, news):
         if ni is None:
@@ -380,6 +381,8 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
         tot_words += r["words"]; tot_kept += r["kept_words"]; tot_corr += r["corrections"]
         swaps += r["swaps"]
         o_tokens += r["a_fixed"]; r_tokens += r["b"]; tot_orig_words += r["orig_words"]
+        n_sent_o += sum(1 for s in sentences(olds[oi]) if _tokens(s.text))
+        n_sent_r += len(r["sentences"])
         for s in r["sentences"]:
             counts[s["kind"]] += 1
         short = r["words"] < MIN_PARAGRAPH_WORDS
@@ -417,6 +420,14 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
         advice.append(f"{len(removed)} original paragraph(s) have no match in the rewrite. Check that nothing was cut.")
     clean = tot_orig_words > 0 and tot_corr / tot_orig_words < 0.03
     drift = _style_drift(o_tokens, r_tokens, original, rewrite, clean_original=clean)
+    # Joining or splitting sentences keeps the words, so it barely moves changed_pct. Count it
+    # separately. Only where the original was clean: a rough draft with few full stops has no
+    # reliable sentence count.
+    restructured = bool(clean and n_sent_o and abs(n_sent_r - n_sent_o) / n_sent_o >= 0.10)
+    if restructured:
+        advice.append(
+            f"Sentences were joined or split: {n_sent_o} became {n_sent_r}. The words are kept, but the rhythm is "
+            "no longer the writer's. Do this only where the register requires it, and say so in the report.")
     if swaps:
         advice.append(
             f"{len(swaps)} word(s) were swapped for another word. Undo every swap that does not fix an error "
@@ -434,6 +445,7 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
         "writer_words_pct": writer_words,
         "corrections": tot_corr,
         "sentences": {"total": sum(counts.values()), **counts},
+        "sentence_count": {"original": n_sent_o, "rewrite": n_sent_r, "joined_or_split": restructured},
         "word_swaps": {"count": len(swaps), "examples": [f"{a} -> {b}" for a, b in swaps[:20]]},
         "style_drift": drift,
         "paragraphs_total": len(news),

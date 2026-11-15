@@ -41,6 +41,7 @@ The budget counts rewording only. Spelling and typing fixes are free: `measure_c
    - `ok: true`: continue.
    - `paragraphs_over_budget`: go back to the writer's wording in those paragraphs and re-apply only the fixes that are needed.
    - `rebuilt_sentences`: put the writer's original sentence back, fix only its errors, and keep your rebuilt version for the suggestions list in step 9.
+   - `sentence_count.joined_or_split`: for a writer's own draft, put their sentence boundaries back unless the register check requires longer or shorter sentences. If it does, say in the report how many sentences were joined.
    - `word_swaps`: undo every swap that does not fix an error or remove a pattern. The writer's word was a choice.
    - `style_drift.flags`: each one names a habit of the writer that the edit removed, or a model habit it added. Put the writer's version back.
    - Run it again. Two rounds are enough. If a paragraph is still over budget, say so in the report instead of pushing on.
@@ -112,6 +113,7 @@ A text that is partly theirs and partly a model's is a mixed text. That is the a
 | `sentences.edited` | 50 to 85%. |
 | `sentences.rebuilt` | Under 50%. The sentence is now yours, not theirs. |
 | `zone` | `within_budget`, `over_budget`, or `heavy` (30% and more). |
+| `sentence_count` | Sentences in the original and in the edit, and whether they were joined or split (a change of 10% or more). Joining keeps the words, so `changed_pct` barely moves; this field shows it. |
 | `word_swaps` | One word replaced by one different word ("use -> leverage"). |
 | `style_drift.flags` | Habits of the writer the edit removed, or model habits it added: overused words, dashes, written-out contractions, removed pronouns or opinions, added hedging, abstract nouns, longer words. Notes, not a pass or fail. |
 | `style_drift.before_after` | Counts in the original and in the edit: contractions, first-person words, pronouns, hedging words, stated opinions, abstract nouns, average word length. |

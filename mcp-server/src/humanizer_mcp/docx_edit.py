@@ -10,6 +10,7 @@ The original file is never overwritten.
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 # Paragraphs that hold one of these cannot be edited safely by replacing text:
@@ -18,7 +19,12 @@ from pathlib import Path
 _LOCKED = ("hyperlink", "fldChar", "fldSimple", "instrText", "drawing", "pict", "object",
            "footnoteReference", "endnoteReference", "commentReference", "oMath", "oMathPara", "sdt")
 _LOCKED_XPATH = ".//*[" + " or ".join(f"local-name()='{n}'" for n in _LOCKED) + "]"
-_NOT_PROSE_STYLES = ("heading", "title", "subtitle", "toc", "caption", "table of", "bibliography")
+_NOT_PROSE_STYLES = ("heading", "title", "subtitle", "toc", "caption", "table", "bibliography", "reference")
+# A heading with one of these names starts the reference list. Nothing after it is prose.
+_REFERENCES_RE = re.compile(r"^\W*(?:\d+[.)]?\s*)?(?:bibliography|references?|reference list|works cited|"
+                            r"literature cited|list of references|sources)\W*$", re.IGNORECASE)
+# A short line with no end mark (a name on the title page, "TABLE OF CONTENTS") is a label, not prose.
+_LABEL_MAX_WORDS = 8
 
 
 def _open(path: str | Path):
@@ -34,12 +40,30 @@ def _open(path: str | Path):
     return docx.Document(str(p)), p
 
 
-def _kind(par) -> str:
+def _is_heading(par) -> bool:
     style = (par.style.name if par.style is not None else "").lower()
-    if not par.text.strip():
+    return any(style.startswith(s) or s in style for s in _NOT_PROSE_STYLES)
+
+
+def _references_start(pars) -> int | None:
+    """Index of the heading that opens the reference list, if there is one."""
+    for i, par in enumerate(pars):
+        if _is_heading(par) and "toc" not in (par.style.name or "").lower() and _REFERENCES_RE.match(par.text.strip()):
+            return i
+    return None
+
+
+def _kind(par, in_references: bool = False) -> str:
+    text = par.text.strip()
+    if not text:
         return "empty"
-    if any(style.startswith(s) or s in style for s in _NOT_PROSE_STYLES):
+    if _is_heading(par):
         return "heading"
+    if in_references:
+        return "reference"
+    if len(text.split()) < _LABEL_MAX_WORDS and not text.endswith((".", "!", "?", ":", ";")):
+        return "label"
+    style = (par.style.name if par.style is not None else "").lower()
     if "list" in style or par._p.xpath(".//*[local-name()='numPr']"):
         return "list"
     return "body"
@@ -68,8 +92,10 @@ def docx_paragraphs(path: str | Path) -> dict:
     """List the paragraphs of a .docx with the index that rewrite_docx expects."""
     doc, p = _open(path)
     rows = []
-    for i, par in enumerate(doc.paragraphs):
-        kind = _kind(par)
+    pars = doc.paragraphs
+    refs = _references_start(pars)
+    for i, par in enumerate(pars):
+        kind = _kind(par, in_references=refs is not None and i > refs)
         if kind == "empty":
             continue
         locked = _locked_by(par)
@@ -86,8 +112,9 @@ def docx_paragraphs(path: str | Path) -> dict:
         "file": str(p),
         "paragraphs": rows,
         "editable": sum(r["editable"] for r in rows),
-        "note": ("Rewrite only paragraphs with editable=true. Text inside tables, text boxes, headers and "
-                 "footers is not listed and is left untouched."),
+        "note": ("Rewrite only paragraphs with editable=true. Headings, captions, short labels (title page "
+                 "lines) and the reference list are locked. Text inside tables, text boxes, headers and footers "
+                 "is not listed and is left untouched."),
     }
 
 
@@ -100,6 +127,7 @@ def rewrite_docx(path: str | Path, replacements: dict, output_path: str | Path |
     if not replacements:
         raise ValueError("Give at least one replacement: {paragraph index: new text}.")
     pars = doc.paragraphs
+    refs = _references_start(pars)
     written, skipped, check_formatting = [], [], []
     for key, new_text in replacements.items():
         try:
@@ -118,7 +146,7 @@ def rewrite_docx(path: str | Path, replacements: dict, output_path: str | Path |
         if "\n" in new_text:
             skipped.append({"index": i, "why": "Replacement holds a line break. One paragraph in, one paragraph out."})
             continue
-        kind = _kind(par)
+        kind = _kind(par, in_references=refs is not None and i > refs)
         if kind not in ("body", "list"):
             skipped.append({"index": i, "why": f"Not prose ({kind}, style '{par.style.name}')."})
             continue

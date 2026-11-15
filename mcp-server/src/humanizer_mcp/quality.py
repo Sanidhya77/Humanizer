@@ -91,17 +91,23 @@ def _fragments(sents: list[str]) -> list[str]:
     return [s for s in sents if len(words(s)) < 3]
 
 
-def _opener_runs(sents: list[str]) -> list[str]:
-    """The same first word opening three or more sentences in a row."""
-    runs, prev, n = [], None, 0
-    for s in sents + [""]:
-        w = words(s)[0].lower() if words(s) else None
-        if w and w == prev:
-            n += 1
-        else:
-            if prev and n >= 3:
-                runs.append(f'"{prev.capitalize()} ..." x{n} in a row')
-            prev, n = w, 1
+def _opener_runs(text: str) -> list[str]:
+    """The same first word opening three or more sentences in a row, inside one paragraph.
+
+    Runs are not counted across paragraphs: two sections that each start with "The" are
+    not a repetition a reader notices.
+    """
+    runs = []
+    for p in _body(text):
+        prev, n = None, 0
+        for s in [x.text for x in sentences(p) if words(x.text)] + [""]:
+            w = words(s)[0].lower() if words(s) else None
+            if w and w == prev:
+                n += 1
+            else:
+                if prev and n >= 3:
+                    runs.append(f'"{prev.capitalize()} ..." x{n} in a row')
+                prev, n = w, 1
     return runs
 
 
@@ -158,7 +164,7 @@ def check_quality(original: str, rewrite: str) -> dict:
         soft.append({"issue": "new_fragments", "found": r_frag[:8],
                      "note": "Sentences of one or two words that the original did not have."})
 
-    new_runs = [r for r in _opener_runs(r_sents) if r not in _opener_runs(o_sents)] if comparable else []
+    new_runs = [r for r in _opener_runs(rewrite) if r not in _opener_runs(original)] if comparable else []
     if new_runs:
         soft.append({"issue": "repeated_openers", "found": new_runs,
                      "note": "Vary the opening, or go back to the writer's own sentence."})

@@ -416,3 +416,41 @@ def test_style_drift_notes_softened_claims_and_removed_opinions():
            "Nobody on the team wants to be on call for it again, and nobody should have to be.")
     flags = " ".join(measure_change(orig, new)["style_drift"]["flags"])
     assert "hedging" in flags and "opinions" in flags
+
+
+def test_joined_sentences_are_counted_and_disclosed():
+    from humanizer_mcp.disclosure import ai_use_statement
+    orig = ("A case is a bounded selling setting. Each ledger entry represents one observation from a passage. "
+            "A report can supply several observations. Any questionnaire response is a separate observation. "
+            "The sources are annual reports. Financial figures will be traced to statements. "
+            "Repeated disclosures will be linked. Distinct claims can share a source locator.")
+    joined = ("A case is a bounded selling setting, and each ledger entry represents one observation from a passage. "
+              "A report can supply several observations, while any questionnaire response is a separate observation. "
+              "The sources are annual reports, and financial figures will be traced to statements. "
+              "Repeated disclosures will be linked, while distinct claims can share a source locator.")
+    m = measure_change(orig, joined)
+    assert m["changed_pct"] < 5 and m["sentence_count"] == {"original": 8, "rewrite": 4, "joined_or_split": True}
+    assert any("joined or split" in a for a in m["advice"])
+    r = ai_use_statement(orig, joined)
+    assert r["level"] == "language_revision" and "8 became 4" in r["statement"]
+    assert "did not write or restructure" not in r["statement"]
+
+
+def test_docx_locks_title_page_labels_and_the_reference_list(tmp_path):
+    import docx
+    from humanizer_mcp.docx_edit import docx_paragraphs, rewrite_docx
+
+    src = tmp_path / "thesis.docx"
+    d = docx.Document()
+    d.add_paragraph("RIGA TECHNICAL UNIVERSITY")
+    d.add_paragraph("Research Report")
+    d.add_heading("1. Introduction", level=1)
+    d.add_paragraph("This report compares four companies and their use of customer records in selling.")
+    d.add_heading("7. Bibliography", level=1)
+    d.add_paragraph("Saunders, M., Lewis, P., Thornhill, A. (2016). Research methods for business students. 7th ed. Harlow: Pearson.")
+    d.save(str(src))
+    kinds = [(p["kind"], p["editable"]) for p in docx_paragraphs(src)["paragraphs"]]
+    assert kinds == [("label", False), ("label", False), ("heading", False), ("body", True),
+                     ("heading", False), ("reference", False)]
+    r = rewrite_docx(src, {"0": "Another University", "5": "A changed reference entry that must not be written."})
+    assert r["paragraphs_rewritten"] == [] and r["saved_to"] is None and len(r["skipped"]) == 2

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "humanizer-mcp"
-version = "0.3.0"
+version = "0.3.1"
 description = "Local MCP tools for the Humanizer skill: edit budget, register and voice checks, meaning check, .docx editing"
 requires-python = ">=3.10"
 license = { text = "MIT" }

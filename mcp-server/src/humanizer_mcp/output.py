@@ -50,6 +50,11 @@ def save_output(text: str, title: str, original: str | None = None, report: dict
         p = folder / "original.md"
         p.write_text(original.strip() + "\n", encoding="utf-8")
         written.append(p)
+        # the change record: every edit marked, with the measure_change numbers on top
+        from .report import render_changes_html
+        p = folder / "changes.html"
+        p.write_text(render_changes_html(original, text, title=title), encoding="utf-8")
+        written.append(p)
     if report:
         p = folder / "report.json"
         p.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")

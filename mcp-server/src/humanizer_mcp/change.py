@@ -20,7 +20,9 @@ from __future__ import annotations
 
 import difflib
 import re
+from collections import Counter
 
+from .features import AI_WORDS_SOFT, AI_WORDS_STRONG, HEDGES, text_stats
 from .text_utils import paragraphs, sentences
 
 # Share of characters reworded, per paragraph, after corrections are set aside.
@@ -60,6 +62,9 @@ def _edit_distance(a: str, b: str, limit: int = 3) -> int:
     return prev[-1]
 
 
+_ENDINGS = {"", "s", "es", "ed", "d", "ing", "e", "y", "ies", "ied", "er", "ers", "ly"}
+
+
 def _is_correction(old: str, new: str) -> bool:
     """True when `new` looks like `old` with its spelling or ending fixed."""
     if old == new:
@@ -68,7 +73,22 @@ def _is_correction(old: str, new: str) -> bool:
     if longest < 3 or old.isdigit() or new.isdigit():
         return False  # "is" -> "it", "3" -> "5": a different word or a changed fact
     allowed = 1 if longest < 5 else 2 if longest < 9 else 3
-    return _edit_distance(old, new, allowed) <= allowed
+    if _edit_distance(old, new, allowed) <= allowed:
+        return True
+    if not (old.isalpha() and new.isalpha()):
+        return False
+    # Same word with another ending: "working" -> "worked". A grammar fix, not a new word.
+    k = 0
+    while k < min(len(old), len(new)) and old[k] == new[k]:
+        k += 1
+    if k >= 4 and old[k:] in _ENDINGS and new[k:] in _ENDINGS:
+        return True
+    # Badly mistyped but the same letters: "cusae" -> "because", "imapleting" -> "implementing".
+    if min(len(old), len(new)) >= 5:
+        a, b = Counter(old), Counter(new)
+        shared = sum((a & b).values())
+        return shared / (len(old) + len(new) - shared) >= 0.68
+    return False
 
 
 def _apply_corrections(a: list[str], b: list[str]) -> tuple[list[str], int]:
@@ -117,6 +137,125 @@ def _pct(x: float) -> float:
     return round(100 * x, 1)
 
 
+_FUNCTION_WORDS = set(
+    "a an the this that these those it its i me my we us our you your he she they them their and or but so if as "
+    "of in on at to for from by with about into over under than then also is are was were be been being am do does "
+    "did has have had not no can could will would shall should may might must there here what which who when "
+    "where why how all any each some both more most very just only even still too".split())
+
+
+def _word_swaps(a_fixed: list[str], b: list[str]) -> list[tuple[str, str]]:
+    """One word replaced by one different word: 'hunt' -> 'search'.
+
+    These are the "better word" swaps. Each one replaces a choice the writer made
+    with a choice the editor made, and changes nothing else.
+    """
+    swaps = []
+    sm = difflib.SequenceMatcher(None, a_fixed, b, autojunk=False)
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "replace" and i2 - i1 == j2 - j1 <= 2:
+            for old, new in zip(a_fixed[i1:i2], b[j1:j2]):
+                if old != new and old not in _FUNCTION_WORDS and new not in _FUNCTION_WORDS \
+                        and old.isalpha() and new.isalpha() and len(old) > 2 and len(new) > 2 \
+                        and not _is_correction(old, new):
+                    swaps.append((old, new))
+    return swaps
+
+
+# Style drift is a set of notes for the editor, not a pass/fail test. Every check needs a
+# minimum number of occurrences, because one word more or less in a 100-word text is noise.
+_DRIFT_MIN_WORDS = 80
+_FIRST_PERSON = {"i", "me", "my", "mine", "myself", "i'm", "i've", "i'll", "i'd"}
+_PRONOUNS = _FIRST_PERSON | {"we", "us", "our", "ours", "you", "your", "yours", "he", "him", "his", "she", "her",
+                             "hers", "they", "them", "their", "theirs", "we're", "we've", "you're", "they're"}
+_OPINION_RE = re.compile(
+    r"\bi (?:think|believe|doubt|suspect|disagree|agree|prefer|would argue|am not sure|don't think|do not think)\b"
+    r"|\bin my (?:opinion|view)\b|\bmy (?:opinion|view|answer|argument) is\b", re.IGNORECASE)
+_NOMINAL_RE = re.compile(r"^[a-z]{3,}(?:tion|tions|sion|sions|ment|ments|ness|nesses|ity|ities|ance|ances|ence|ences)$")
+_CONTRACTION_TOKEN_RE = re.compile(r"^[a-z]+(?:n't|'re|'ve|'ll|'d|'m)$|^(?:it|that|there|what|here|he|she|who|let)'s$")
+
+
+def _style_drift(o_tokens: list[str], r_tokens: list[str], original: str, rewrite: str,
+                 clean_original: bool) -> dict:
+    """Did the edit pull the text toward the way models write?
+
+    The writer's own draft is the reference (o_tokens: its words with spelling fixed).
+    Research on LLM style (Reinhart et al. 2025; Kobak et al. 2025) finds more
+    nominalizations and "-ing" clauses, a set of favoured words, and a more even, more
+    formal surface than people produce. An edit that adds those to a text that did not
+    have them is moving it the wrong way.
+
+    clean_original: the original needed few spelling fixes, so its punctuation-based
+    statistics (sentence rhythm, "-ing" clauses) can be trusted.
+    """
+    ai_words = AI_WORDS_STRONG | AI_WORDS_SOFT
+    introduced = sorted({w for w in r_tokens if w in ai_words} - set(o_tokens))
+    flags: list[str] = []
+    if introduced:
+        flags.append("The edit added words that models overuse: " + ", ".join(introduced)
+                     + ". Use the writer's own word.")
+    o_dash = original.count("—") + len(re.findall(r"\s--\s|\s–\s", original))
+    r_dash = rewrite.count("—") + len(re.findall(r"\s--\s|\s–\s", rewrite))
+    if r_dash > o_dash:
+        flags.append(f"The edit added {r_dash - o_dash} dash(es) used as a connector. The writer used {o_dash}.")
+    out: dict = {"introduced_ai_words": introduced, "flags": flags}
+    if min(len(o_tokens), len(r_tokens)) < _DRIFT_MIN_WORDS:
+        return out
+    table: dict = {}
+
+    def count(tokens: list[str], test) -> int:
+        return sum(1 for t in tokens if test(t))
+
+    a, b = count(o_tokens, _CONTRACTION_TOKEN_RE.match), count(r_tokens, _CONTRACTION_TOKEN_RE.match)
+    table["contractions"] = [a, b]
+    if a >= 3 and b <= a / 2:
+        flags.append("The writer's contractions were written out in full. Keep them unless the register forbids them.")
+    a, b = count(o_tokens, _FIRST_PERSON.__contains__), count(r_tokens, _FIRST_PERSON.__contains__)
+    table["first_person_words"] = [a, b]
+    if a >= 4 and b <= a / 2:
+        flags.append("First-person wording (I, my) was removed. Keep the writer in the text unless the register forbids it.")
+    a, b = count(o_tokens, _PRONOUNS.__contains__), count(r_tokens, _PRONOUNS.__contains__)
+    table["personal_pronouns"] = [a, b]
+    if a >= 8 and b <= a * 0.6 and not any("First-person" in f for f in flags):
+        flags.append("Personal pronouns (we, you, they) were replaced by nouns. The text reads less personal than the writer's.")
+    a, b = count(o_tokens, HEDGES.__contains__), count(r_tokens, HEDGES.__contains__)
+    table["hedging_words"] = [a, b]
+    if b - a >= 3 and b >= a * 1.5:
+        flags.append("The edit added hedging (may, might, perhaps, generally). It softens claims the writer made plainly.")
+    a, b = len(_OPINION_RE.findall(original)), len(_OPINION_RE.findall(rewrite))
+    table["stated_opinions"] = [a, b]
+    if a >= 2 and b <= a / 2:
+        flags.append("Stated opinions (I think, in my view) were removed. Do not make the writer's position neutral.")
+    a, b = count(o_tokens, _NOMINAL_RE.match), count(r_tokens, _NOMINAL_RE.match)
+    table["abstract_nouns"] = [a, b]
+    if b - a >= 4 and b >= a * 1.5:
+        flags.append("More abstract nouns (-tion, -ment, -ity) than the original. Go back to the writer's verbs.")
+
+    def word_len(tokens: list[str]) -> float:
+        ws = [t for t in tokens if t.isalpha()]
+        return sum(map(len, ws)) / len(ws) if ws else 0.0
+
+    a, b = word_len(o_tokens), word_len(r_tokens)
+    table["avg_word_length"] = [round(a, 2), round(b, 2)]
+    if a and (b - a) / a > 0.06 and min(len(o_tokens), len(r_tokens)) >= 150:
+        flags.append("Words got longer on average. Plain words were probably swapped for formal ones.")
+
+    if clean_original:
+        o, r = text_stats(original), text_stats(rewrite)
+        a = round(o["participle_clauses_per_1k"] * o["words"] / 1000)
+        b = round(r["participle_clauses_per_1k"] * r["words"] / 1000)
+        table["ing_clauses"] = [a, b]
+        if b - a >= 3 and b >= a * 1.5:
+            flags.append("More '-ing' clauses than the original (', making it ...'). Models overuse them.")
+        if min(o["sentences"], r["sentences"]) >= 8 and 0.6 <= o["sentences"] / r["sentences"] <= 1.6:
+            table["sentence_length_variation"] = [o["sentence_length_cv"], r["sentence_length_cv"]]
+            table["avg_sentence_words"] = [o["avg_sentence_words"], r["avg_sentence_words"]]
+            if o["sentence_length_cv"] - r["sentence_length_cv"] >= 0.12:
+                flags.append("Sentence lengths became more even. Keep the writer's mix of short and long sentences.")
+    out["before_after"] = table
+    return out
+
+
 def _ratio_changed(a, b) -> float:
     if not a and not b:
         return 0.0
@@ -147,6 +286,8 @@ def _compare_paragraph(orig: str, new: str) -> dict:
 
     match_chars = sum(m.size for m in difflib.SequenceMatcher(None, sa, sb, autojunk=False).get_matching_blocks())
     return {
+        "swaps": _word_swaps(a_fixed, b),
+        "a_fixed": a_fixed, "b": b, "orig_words": len(a),
         "words": len(b),
         "orig_chars": len(sa), "new_chars": len(sb), "match_chars": match_chars,
         "changed_pct": _pct(1 - 2 * match_chars / (len(sa) + len(sb))) if (sa or sb) else 0.0,
@@ -213,6 +354,10 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
     tot_raw_o = tot_raw_match = 0.0
     counts = {"kept": 0, "edited": 0, "rebuilt": 0, "new": 0}
     removed: list[str] = []
+    swaps: list[tuple[str, str]] = []
+    o_tokens: list[str] = []
+    r_tokens: list[str] = []
+    tot_orig_words = 0
 
     for oi, ni in _align_paragraphs(olds, news):
         if ni is None:
@@ -233,6 +378,8 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
         r = _compare_paragraph(olds[oi], news[ni])
         tot_o += r["orig_chars"]; tot_n += r["new_chars"]; tot_match += r["match_chars"]
         tot_words += r["words"]; tot_kept += r["kept_words"]; tot_corr += r["corrections"]
+        swaps += r["swaps"]
+        o_tokens += r["a_fixed"]; r_tokens += r["b"]; tot_orig_words += r["orig_words"]
         for s in r["sentences"]:
             counts[s["kind"]] += 1
         short = r["words"] < MIN_PARAGRAPH_WORDS
@@ -268,6 +415,13 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
             "rewrite, show it to the writer as a suggestion or ask them to rewrite it, instead of replacing it.")
     if removed:
         advice.append(f"{len(removed)} original paragraph(s) have no match in the rewrite. Check that nothing was cut.")
+    clean = tot_orig_words > 0 and tot_corr / tot_orig_words < 0.03
+    drift = _style_drift(o_tokens, r_tokens, original, rewrite, clean_original=clean)
+    if swaps:
+        advice.append(
+            f"{len(swaps)} word(s) were swapped for another word. Undo every swap that does not fix an error "
+            "or remove an AI pattern: the writer's word was a choice.")
+    advice += drift["flags"]
     if not advice:
         advice.append("Within budget. The text is still mostly the writer's own wording.")
 
@@ -280,6 +434,8 @@ def measure_change(original: str, rewrite: str, mode: str = "normal",
         "writer_words_pct": writer_words,
         "corrections": tot_corr,
         "sentences": {"total": sum(counts.values()), **counts},
+        "word_swaps": {"count": len(swaps), "examples": [f"{a} -> {b}" for a, b in swaps[:20]]},
+        "style_drift": drift,
         "paragraphs_total": len(news),
         "paragraphs_over_budget": over,
         "removed_paragraphs": removed,

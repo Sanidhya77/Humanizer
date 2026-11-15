@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.2.0
+
+Changes after a review of other humanizer projects and recent detection research (`docs/related-work.md`).
+
+- `measure_change` now reports **word swaps** (one word replaced by another, such as "use" to "leverage") and **style drift**: where the edit moved the text toward model habits. It notes overused words and dashes the edit added, contractions it wrote out, first-person wording it removed, added abstract nouns and longer words. The writer's own draft is the reference, so no voice profile is needed.
+- More typing errors are recognised as corrections and no longer use the edit budget: the same letters in another order ("expalme"), badly mistyped words ("cusae" for "because"), and another ending on the same word ("working" to "worked"). A changed number is still never a correction.
+- New tool `check_quality`: lists what an edit made worse. Hard issues are hidden characters, look-alike letters from another alphabet, doubled words, unbalanced brackets or quotes, and a paragraph that stops without an end mark. It also notes new fragments, repeated openers and phrases, and large changes in length or reading level.
+- New tool `find_generic`: for AI-written drafts, ranks paragraphs from least to most specific so the editor knows where to ask the writer a question.
+- Style drift also notes pronouns replaced by nouns, added hedging and removed opinions. A 2026 Google DeepMind study found that LLM edits make text less personal and more neutral; these checks look for that.
+- New: every saved job gets `changes.html`, a change record with removed words struck through, added words underlined and the measurements on top.
+- New tool `ai_use_statement`: classifies the edit as copy editing, language revision, substantial rewriting or generated text, and drafts a disclosure statement (tool, task, extent, who checked). It describes the edit only and says so.
+- The README now opens with how the fork differs from paraphrasing humanizers and pattern-list skills, and states what it will not do: no translation chains, hidden characters, look-alike letters or rewriting against a detector's score.
+
 ## 4.1.0
 
 This release is the first from the fork at `Sanidhya77/Humanizer`. It adds the local tools in `mcp-server/` and changes how much the skill rewrites a writer's own draft.

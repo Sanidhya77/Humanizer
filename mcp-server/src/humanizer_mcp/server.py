@@ -9,7 +9,9 @@ Typical loop the skill asks Claude to follow (see references/local-tools.md):
   3. measure_change -> go back to the original wording wherever the edit is over budget
   4. check_voice    -> fix only what is outside the register
   5. check_meaning  -> restore anything dropped, remove anything invented
-  6. save_output (or rewrite_docx to keep a .docx's formatting)
+  6. check_quality  -> fix anything the edit made worse
+  7. save_output (or rewrite_docx to keep a .docx's formatting)
+For AI-written drafts, find_generic picks the paragraphs to ask the writer about.
 """
 
 from __future__ import annotations
@@ -22,9 +24,12 @@ from mcp.server.fastmcp import FastMCP
 from . import config
 from .change import measure_change as _measure_change
 from .detector import get_detector
+from .disclosure import ai_use_statement as _ai_use_statement
 from .docx_edit import docx_paragraphs as _docx_paragraphs, rewrite_docx as _rewrite_docx
 from .meaning import check_meaning as _check_meaning
 from .output import save_output as _save_output
+from .quality import check_quality as _check_quality
+from .specificity import find_generic as _find_generic
 from .text_utils import read_document as _read_document
 from . import registers as _registers
 from .voice import build_profile, check_voice as _check_voice, compare_to_voice as _compare, list_profiles, load_profile, save_profile
@@ -88,6 +93,9 @@ def measure_change(
     else is rewording. Returns changed_pct (share of characters reworded), writer_words_pct (share
     of the final words that are still the writer's own), sentence counts (kept / edited / rebuilt /
     new), and paragraphs_over_budget with the sentences that were rebuilt.
+    Also returns word_swaps (one word replaced by another: undo each one that fixes nothing) and
+    style_drift (notes where the edit moved the text toward model habits: overused words, added
+    dashes, written-out contractions, removed "I", more abstract nouns, longer words).
 
     mode: "light" (budget 12% per paragraph: fix errors only) or "normal" (20%: also remove AI
       patterns and fix clarity). budget_pct overrides the number; only raise it if the user asks.
@@ -117,6 +125,61 @@ def check_meaning(
     your questions). Numbers and citations from it are not reported as invented."""
     return _check_meaning(_text_or_path(original, original_path), _text_or_path(rewrite, rewrite_path),
                           also_allowed=also_allowed)
+
+
+@mcp.tool()
+def check_quality(
+    original: str | None = None,
+    rewrite: str | None = None,
+    original_path: str | None = None,
+    rewrite_path: str | None = None,
+) -> dict:
+    """List what an edit made worse than the original. Run it before saving.
+
+    hard_issues (ok=false): hidden characters, look-alike letters from another alphabet, doubled
+    words, unbalanced brackets or quotes, a paragraph that stops without an end mark.
+    worth_a_look: new one-word fragments, the same opener three times in a row, a phrase repeated
+    more than in the original, a large change in length, sentence length or word length.
+    Only what is new in the rewrite is reported. Give the texts directly or as file paths."""
+    return _check_quality(_text_or_path(original, original_path), _text_or_path(rewrite, rewrite_path))
+
+
+@mcp.tool()
+def ai_use_statement(
+    original: str | None = None,
+    rewrite: str | None = None,
+    original_path: str | None = None,
+    rewrite_path: str | None = None,
+    tool_name: str = "Claude (Anthropic)",
+    author: str = "the author",
+) -> dict:
+    """Describe honestly what the AI did to a text, and draft the disclosure statement that journals,
+    universities and clients ask for.
+
+    Measures the edit against the writer's original and returns a level: copy_editing (spelling,
+    grammar, punctuation only), language_revision (some wording changed), substantial_rewriting
+    (sentences rebuilt) or generated_text (sentences the tool wrote). Returns a draft statement naming
+    the tool, the task, the extent and who checked the result, and a note on what venues usually expect.
+
+    Offer it when the text is for a university, a journal or a client, or when the user asks what
+    they need to declare. It describes only the edit between the two texts given: if the original was
+    itself drafted with AI, tell the user the statement must say so. Never use it to claim a text is
+    human-written."""
+    return _ai_use_statement(_text_or_path(original, original_path), _text_or_path(rewrite, rewrite_path),
+                             tool_name=tool_name, author=author)
+
+
+@mcp.tool()
+def find_generic(text: str | None = None, path: str | None = None, max_questions: int | None = None) -> dict:
+    """For an AI-written draft: rank its paragraphs from least to most specific, so you know where
+    to ask the writer a question.
+
+    A paragraph scores by its details per 100 words (numbers, names, citations, first-hand phrases,
+    stated opinions, examples, quotes) minus filler phrases. ask_about lists the emptiest ones, at
+    most questions_allowed (one per 300 words, between 3 and 8). Ask ONE specific question about each,
+    all in one message, and put the writer's answer into the paragraph almost word for word.
+    A low score does not mean a model wrote the paragraph; do not report it that way."""
+    return _find_generic(_text_or_path(text, path), max_questions=max_questions)
 
 
 @mcp.tool()
@@ -246,6 +309,8 @@ def save_output(
 ) -> dict:
     """Save the final rewrite into the Humanizer output folder (one subfolder per job).
     Include the original and a report (measure_change, register fit before/after, meaning check).
+    When the original is given, the folder also gets changes.html: a change record with every edit
+    marked (removed words struck through, added words underlined). Tell the user it is there.
     format: "md" (default) or "docx". "docx" builds a new plain document; to keep the formatting of
     an existing .docx, use rewrite_docx instead."""
     return _save_output(text, title, original=original, report=report, fmt=format)

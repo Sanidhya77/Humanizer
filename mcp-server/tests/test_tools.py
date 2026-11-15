@@ -284,3 +284,135 @@ def test_rewrite_docx_keeps_styles_and_never_overwrites(tmp_path):
         pass
     else:
         raise AssertionError("writing over the original must be refused")
+
+
+# --- corrections, swaps and style drift -----------------------------------------
+
+def test_what_counts_as_a_spelling_fix():
+    from humanizer_mcp.change import _is_correction
+    for old, new in [("teh", "the"), ("form", "from"), ("uself", "useful"), ("expalme", "example"),
+                     ("cusae", "because"), ("imapleting", "implementing"), ("working", "worked")]:
+        assert _is_correction(old, new), (old, new)
+    for old, new in [("hunt", "search"), ("guy", "man"), ("decide", "decision"), ("is", "it"),
+                     ("12", "15"), ("make", "build"), ("tested", "tried")]:
+        assert not _is_correction(old, new), (old, new)
+
+
+def test_word_swaps_and_overused_words_are_reported():
+    orig = ("We use a small cache in front of the database, and it helps a lot when many users load the same page. "
+            "I think the setup is simple and most teams can copy it in a day without any special tools at all.")
+    new = ("We leverage a small cache in front of the database, and it helps a lot when many users load the same page. "
+           "I think the setup is seamless and most teams can copy it in a day without any special tools at all.")
+    r = measure_change(orig, new)
+    assert "use -> leverage" in r["word_swaps"]["examples"] and r["word_swaps"]["count"] == 2
+    assert r["style_drift"]["introduced_ai_words"] == ["leverage", "seamless"]
+    assert any("overuse" in a for a in r["advice"])
+
+
+def test_style_drift_notes_when_the_writer_is_edited_out():
+    orig = ("I don't trust this benchmark. I ran it on my laptop and I couldn't get the same numbers twice. "
+            "It's fast, but I wouldn't publish it. My guess is the cache isn't warm, so I'd run it ten times. "
+            "I didn't see this problem last year. I've asked my team and they can't explain it either. "
+            "So I won't use these results in my report, and I don't think anyone should until it's fixed. ") * 2
+    new = ("This benchmark is not trustworthy. It was run on a laptop and the same numbers could not be obtained twice. "
+           "It is fast, but publication is not advisable. The explanation may be that the cache is not warm, so ten "
+           "repetitions are recommended. This problem was not seen last year. The team was asked and cannot explain it. "
+           "These results will not be used in the report, and nobody should use them until the problem is fixed. ") * 2
+    flags = " ".join(measure_change(orig, new)["style_drift"]["flags"])
+    assert "contractions" in flags and "First-person" in flags
+
+
+# --- quality guard ---------------------------------------------------------------
+
+def test_quality_guard_catches_damage_and_hidden_characters():
+    from humanizer_mcp.quality import check_quality
+    orig = ("The cache sits in front of the database (see the diagram) and answers most read requests on its own. "
+            "When an entry is missing it asks the database and stores the answer for the next request that comes in.")
+    bad = ("The cache sits in front of the the database (see the diagram and answers most read requests on its own. "
+           "When an entry is missing it asks the dat\u200babase and stores the аnswer for the next request that comes")
+    r = check_quality(orig, bad)
+    found = {h["issue"] for h in r["hard_issues"]}
+    assert not r["ok"]
+    assert {"hidden_characters", "lookalike_letters", "doubled_words", "unbalanced_brackets_or_quotes",
+            "paragraph_without_end_mark"} <= found
+    assert check_quality(orig, orig)["ok"] and not check_quality(orig, orig)["worth_a_look"]
+
+
+def test_quality_guard_does_not_blame_the_edit_for_the_original():
+    from humanizer_mcp.quality import check_quality
+    orig = "It had had enough (or so it seemed. The team team wrote this in a hurry and never fixed it before the release went out"
+    assert check_quality(orig, orig)["ok"]
+
+
+# --- generic paragraphs ----------------------------------------------------------
+
+def test_find_generic_ranks_the_empty_paragraph_first():
+    from humanizer_mcp.specificity import find_generic
+    generic = ("In today's rapidly evolving landscape, caching plays a crucial role in modern systems. Many companies "
+               "rely on a wide range of tools to improve performance, and it is important to note that the right choice "
+               "depends on various factors. Ultimately, the power of caching cannot be overstated.")
+    specific = ("Last month I tested Redis 7 on our checkout service. Median latency fell from 180 ms to 45 ms, but I "
+                "think the bigger win was cost: we dropped two of five database replicas. For example, the product page "
+                "now makes 3 queries instead of 11.")
+    r = find_generic(specific + "\n\n" + generic + "\n\n## A heading\n\nToo short to count.")
+    assert [p["paragraph"] for p in r["all_paragraphs"]] == [2, 1]
+    assert [p["paragraph"] for p in r["ask_about"]] == [2]
+    assert r["all_paragraphs"][0]["filler"] and r["all_paragraphs"][1]["has"]["first_hand"] >= 1
+    assert r["questions_allowed"] == 3
+
+
+# --- change record and AI-use statement -----------------------------------------
+
+def test_ai_use_statement_levels():
+    from humanizer_mcp.disclosure import ai_use_statement
+    fixed = (
+        "The reason I am building this tool is for my own need as well, because I write blogs for someone and "
+        "each time I have to find the AI detector and the rewriter for that. This does not mean I write from AI. "
+        "I do the research and topic finding and I choose what to write and what tone to give it. "
+        "So I wanted something that can find the balance between the writing quality and what the detectors say."
+    )
+    r = ai_use_statement(ROUGH, fixed, tool_name="Claude", author="the author")
+    assert r["level"] == "copy_editing" and "spelling, grammar and punctuation" in r["statement"]
+    assert "did not write or restructure any sentence" in r["statement"]
+
+    rebuilt = (
+        "I built this tool for myself, since blog work for a client means hunting for a detector and a rewriter "
+        "every single time. AI does not do everything, though. Research, topics, content and tone are my decisions. "
+        "My goal was a sensible trade-off between readable prose and detector results."
+    )
+    r = ai_use_statement(ROUGH, rebuilt)
+    assert r["level"] in ("substantial_rewriting", "generated_text") and "Disclose" in r["usually"]
+
+    added = fixed + "\n\nA closing paragraph that only the tool wrote, about the future of writing tools in general and nothing else."
+    r = ai_use_statement(ROUGH, added)
+    assert r["level"] == "generated_text" and r["measured"]["paragraphs_added"] == 1
+    assert ai_use_statement(fixed, fixed)["level"] == "none"
+    assert "drafted" in r["limits"]
+
+
+def test_change_record_marks_every_edit_and_is_saved(tmp_path, monkeypatch):
+    from humanizer_mcp.output import save_output
+    from humanizer_mcp.report import render_changes_html
+    orig = "Teh cache <fast> helps alot when many users load the same page at the same time every day."
+    new = "The cache <fast> helps a lot when many users open the same page at the same time every day."
+    page = render_changes_html(orig, new, title="Cache & speed")
+    assert "<del>load</del>" in page and "<ins>open</ins>" in page
+    assert "&lt;fast&gt;" in page and "<fast>" not in page and "Cache &amp; speed" in page
+    monkeypatch.setenv("HUMANIZER_HOME", str(tmp_path))
+    r = save_output(new, "Cache note", original=orig)
+    assert any(f.endswith("changes.html") for f in r["files"])
+
+
+def test_style_drift_notes_softened_claims_and_removed_opinions():
+    orig = ("I think this design is wrong. The cache fails under load and the team knows it. I believe we must replace "
+            "it before the launch. In my opinion the vendor oversold it. I disagree with the plan to patch it again, "
+            "because patches hide the problem and the next outage will cost us more than a rewrite costs today. "
+            "The numbers are clear: it failed four times in March and the fix took two days each time. "
+            "Nobody on the team wants to be on call for it again, and nobody should have to be.")
+    new = ("This design may be suboptimal. The cache might fail under load, and this is generally known. It could "
+           "perhaps be replaced before the launch. The vendor possibly oversold it. Patching it again is arguably "
+           "risky, because patches may hide the problem and the next outage could cost more than a rewrite costs today. "
+           "The numbers suggest this: it failed four times in March and the fix took roughly two days each time. "
+           "Nobody on the team wants to be on call for it again, and nobody should have to be.")
+    flags = " ".join(measure_change(orig, new)["style_drift"]["flags"])
+    assert "hedging" in flags and "opinions" in flags

@@ -21,6 +21,7 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 - `scripts/validate-package.py` checks package files and shared values.
 - `references/local-tools.md` is the working loop for the local tools. `SKILL.md` points to it, so tool detail does not use the word budget.
 - `mcp-server/` holds the local MCP tools (Python). Run `pytest mcp-server/tests` after changing them.
+- `docs/related-work.md` lists the outside projects and papers that were reviewed, and what was and was not taken from them.
 - `docs/edit-budget.md` records the test behind the edit budget. Update it when the budgets in `mcp-server/src/humanizer_mcp/change.py` change.
 
 ## Rules for changes

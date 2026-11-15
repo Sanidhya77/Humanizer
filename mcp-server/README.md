@@ -5,8 +5,11 @@ The Humanizer skill tells Claude *how* to rewrite. This server gives Claude tool
 
 | Tool | What it does |
 |---|---|
-| `measure_change` | Compares your original with the edit. Returns the share of characters reworded per paragraph, the share of the final words that are still yours, and every sentence that was rebuilt. Spelling fixes are counted separately and do not use the edit budget. |
+| `measure_change` | Compares your original with the edit. Returns the share of characters reworded per paragraph, the share of the final words that are still yours, and every sentence that was rebuilt. Spelling fixes are counted separately and do not use the edit budget. Also lists word swaps and style drift (where the edit moved your text toward model habits). |
 | `check_meaning` | Compares original and edit. Lists any number, citation, link, quote or name that was dropped or invented. |
+| `check_quality` | Lists what the edit made worse: doubled words, open brackets or quotes, a paragraph cut off, hidden characters, look-alike letters, new fragments, repeated openers and phrases, a large change in length or reading level. |
+| `ai_use_statement` | Says which kind of help the edit was (copy editing, language revision, substantial rewriting, or text the tool wrote) and drafts a disclosure statement with the tool, the task, the extent and who checked the result. |
+| `find_generic` | For AI-written drafts: ranks paragraphs from least to most specific, so Claude knows where to ask you a question. |
 | `list_registers` / `get_register` | Writing registers: academic level × field (high school to PhD and published papers, six fields, plus sections like methods and discussion), and blog and social platforms. Each has acceptable ranges and a short guide. |
 | `check_voice` | Checks a draft against a register and, optionally, your voice profile. Returns what must be fixed, AI patterns, optional voice nudges, and the habits it deliberately does **not** apply in this register. |
 | `create_voice_profile` | Learns your habits from your own writing, one profile per genre. `private=True` stores only numbers, no text, for client or company writing. |
@@ -14,11 +17,11 @@ The Humanizer skill tells Claude *how* to rewrite. This server gives Claude tool
 | `compare_to_voice` | Shortcut: `check_voice` in the profile's own register. |
 | `read_document` | Reads .txt, .md, .docx files. |
 | `read_docx_paragraphs` / `rewrite_docx` | Lists the paragraphs of a .docx, then writes the edited ones into a copy. Styles, headings, tables and layout stay as they were. The original file is never changed. |
-| `save_output` | Saves the final text, original and report to the output folder. |
+| `save_output` | Saves the final text, original and report to the output folder, plus `changes.html`: a change record with every edit marked. |
 | `score_text` | Optional local estimate of how model-like a text reads. It does not predict GPTZero or any other commercial detector. |
 | `humanizer_status` | Shows folders, model and calibration state. |
 
-`measure_change`, `check_meaning`, `check_voice` and `score_text` take either the text or a file path, so long
+`measure_change`, `check_meaning`, `check_quality`, `check_voice`, `ai_use_statement`, `find_generic` and `score_text` take either the text or a file path, so long
 documents do not have to be pasted.
 
 Claude does the rewriting itself, so you don't need an OpenAI or Anthropic API key.
@@ -140,10 +143,26 @@ Claude then runs this loop (the full version is in [`references/local-tools.md`]
 2. Edit inside your sentences: fix errors, and remove AI patterns where they appear.
 3. `measure_change`. Wherever a paragraph is over budget or a sentence was rebuilt, Claude goes back
    to your wording and keeps only the fixes that are needed.
-4. `check_voice` (still inside the register?) and `check_meaning` (nothing dropped or invented?).
+4. `check_voice` (still inside the register?), `check_meaning` (nothing dropped or invented?) and
+   `check_quality` (nothing made worse?).
 5. `save_output`, or `rewrite_docx` for a Word file.
 6. A short report: how much changed, how much is still your wording, and a list of sentences Claude
    would rewrite, for you to accept or redo yourself.
+
+**What you keep.** Each job folder holds `final.md`, `original.md`, `report.json` and `changes.html`.
+Open `changes.html` in a browser to see every edit: removed words struck through, added words
+underlined, and the numbers on top. If the text is for a university, journal or client, ask Claude
+for the AI-use statement. It is drafted from what was measured:
+
+| Level | What the edit did | What venues usually expect |
+|---|---|---|
+| `copy_editing` | Spelling, grammar and punctuation only | Often no statement needed; giving one never hurts |
+| `language_revision` | Some wording changed for clarity, no sentence rebuilt | Usually disclosed and accepted |
+| `substantial_rewriting` | Sentences rebuilt by the tool | Disclose; some venues limit AI to language editing |
+| `generated_text` | Sentences or paragraphs the tool wrote | Disclose; some venues do not accept it |
+
+The statement only describes the edit between the two texts. If the draft itself was written with AI,
+the statement has to say so, and rules differ between venues: read theirs.
 
 **The two budgets**
 
@@ -156,15 +175,15 @@ Claude then runs this loop (the full version is in [`references/local-tools.md`]
 
 | Edit | Corrections | `changed_pct` | `writer_words_pct` | Rebuilt sentences | `ok` |
 |---|---|---|---|---|---|
-| Errors fixed | 66 | 11.3 | 83.4 | 0 | yes |
-| Reworded in place | 51 | 20.5 | 74.6 | 0 | no (just over 20%) |
-| Sentences rebuilt | 24 | 36.3 | 51.2 | 5 | no |
+| Errors fixed | 72 | 10.6 | 85.4 | 0 | yes |
+| Reworded in place | 55 | 20.1 | 76.0 | 0 | no (just over 20%) |
+| Sentences rebuilt | 27 | 35.9 | 52.5 | 5 | no |
 
 On GPTZero the first two were classed Human and the third AI. See
 [docs/edit-budget.md](../docs/edit-budget.md) for the whole test and its limits.
 
-**If an AI wrote the draft**, say so. Claude then runs the full Humanizer rewrite and asks you a
-few specific questions, so the text gains what only you know. It stays AI-assisted text, and
+**If an AI wrote the draft**, say so. Claude then runs the full Humanizer rewrite, uses `find_generic`
+to pick the emptiest paragraphs, and asks you a few specific questions, so the text gains what only you know. It stays AI-assisted text, and
 Claude will not tell you it "passes".
 
 ## Settings (environment variables)

@@ -7,7 +7,7 @@ description: |
   language, stock AI words, bold labels, or filler.
 license: MIT
 metadata:
-  version: "4.1.0"
+  version: "4.2.0"
 ---
 
 # Humanizer: remove AI writing patterns
@@ -493,7 +493,7 @@ First name the register: level and field for academic work, otherwise the platfo
 
 ## Using the local tools
 
-If the Humanizer MCP tools are connected (`measure_change`, `check_voice`, `check_meaning`), read `references/local-tools.md` and follow its loop. After every round, run `measure_change` and return to the original wording wherever a paragraph is over budget or a sentence was rebuilt. Fix only what `check_voice` puts outside the register, run `check_meaning` before saving, and never reword a sentence to lower a detector score.
+If the Humanizer MCP tools are connected (`measure_change`, `check_voice`, `check_meaning`), read `references/local-tools.md` and follow its loop. After every round, run `measure_change` and return to the original wording wherever a paragraph is over budget or a sentence was rebuilt. Fix only what `check_voice` puts outside the register, run `check_meaning` and `check_quality` before saving, and never reword a sentence to lower a detector score.
 
 ## When not to act
 

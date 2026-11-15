@@ -1,50 +1,83 @@
-# Humanizer (register-aware fork)
+# Humanizer: a copy editor for your drafts, with a record of every change
 
-A fork of [blader/humanizer](https://github.com/blader/humanizer) that adds **local measurement tools**.
-The original skill tells the model *how* to rewrite. This fork adds an MCP server
-([`mcp-server/`](mcp-server/README.md)) that runs on your own computer, with no API key, and checks:
+Most "humanizers" rewrite your text until a detector stops flagging it. This one does the opposite.
+It edits the way a human copy editor does (small, targeted changes inside your own sentences),
+measures how much it changed, and gives you a record you can show.
 
-- **How much was changed.** `measure_change` reports the share of your wording that was reworded,
-  paragraph by paragraph, and names every sentence that was rebuilt. Your own draft is edited inside
-  a budget (12% or 20% per paragraph). Spelling fixes do not count against it.
-- **Register.** Is the draft inside what is normal for this kind of writing? There are 34
-  registers measured from real pre-2020 texts: high school to published papers, across six
-  fields, plus blogs, newsletters and forum posts.
-  See [REGISTERS.md](mcp-server/REGISTERS.md).
+It is a fork of [blader/humanizer](https://github.com/blader/humanizer). The original skill tells the
+model *how* to edit. This fork adds an MCP server ([`mcp-server/`](mcp-server/README.md)) that runs on
+your own computer, with no API key, and *measures* the edit.
+
+### How it differs
+
+| | Paraphrasing humanizers | Pattern-list skills | This fork |
+|---|---|---|---|
+| What it does to your draft | Rewrites it, often several times | Removes known AI phrasings | Fixes errors and AI phrasings inside your sentences |
+| How much it changes | Not measured | Not measured | Measured per paragraph, inside a budget (12% or 20%) |
+| Your facts | Often drift | Not checked | Every number, citation, link and quote is checked |
+| Your voice | Replaced by the tool's | Kept if you give a sample | Your draft is the reference; drift away from it is reported |
+| What you can show afterwards | A detector score | Nothing | A change record and a draft AI-use statement |
+| Runs where | Usually a paid web service | In your agent | In your agent, tools on your own computer |
+
+### What you get
+
+- **An edit budget.** `measure_change` reports the share of your wording that was reworded, paragraph by
+  paragraph, and names every sentence that was rebuilt. Spelling fixes do not count against the budget.
+- **A change record.** Each job saves `changes.html`: your draft and the edit in one page, removed words
+  struck through and added words underlined, with the numbers on top.
+- **An honest AI-use statement.** `ai_use_statement` says which kind of help the edit was (spelling and
+  grammar only, language revision, substantial rewriting, or text the tool wrote) and drafts the
+  disclosure that journals, universities and clients ask for.
+- **Style drift.** Did the edit pull your text toward model habits: overused words, added dashes,
+  written-out contractions, a removed "I", softened claims, longer words?
 - **Meaning.** Did any number, citation, link, quote or name get dropped or invented?
-- **Voice (optional).** Learns your habits from your own writing and applies them only inside
-  the register, so your blog's contractions never end up in your thesis.
-- **Word files.** Edited paragraphs are written into a copy of your .docx. Styles, headings,
-  tables and layout stay as they were.
+- **Quality.** Did the edit make anything worse? Doubled words, open brackets, cut-off paragraphs,
+  hidden characters and look-alike letters are reported before the text is saved.
+- **Register.** Is the draft inside what is normal for this kind of writing? There are 34 registers
+  measured from real pre-2020 texts: high school to published papers, across six fields, plus blogs,
+  newsletters and forum posts. See [REGISTERS.md](mcp-server/REGISTERS.md).
+- **Voice (optional).** Learns your habits from your own writing and applies them only inside the
+  register, so your blog's contractions never end up in your thesis.
+- **Word files.** Edited paragraphs are written into a copy of your .docx. Styles, headings, tables and
+  layout stay as they were.
 
 **Quick start:** follow [mcp-server/README.md](mcp-server/README.md) (about 15 minutes on Windows),
-then ask Claude: *"Edit my draft lightly. Register: blog_technical."*
+then ask Claude: *"I wrote this draft myself. Edit it lightly. Register: blog_technical."*
 
-### Why an edit budget
+### Why edit lightly: the evidence
 
 In a small test on GPTZero ([docs/edit-budget.md](docs/edit-budget.md)), three human-written drafts
 were edited to three depths:
 
-| Edit | Share reworded | Rebuilt sentences | GPTZero |
-|---|---|---|---|
-| Light (errors only) | 6 to 11% | 0 | Human, 3 of 3 |
-| Middle (reworded in place) | 17 to 21% | 0 | Human, 3 of 3 |
-| Heavy (sentences rebuilt) | 36 to 41% | 4 to 5 | AI, 3 of 3 |
+| Edit | Share reworded | Rebuilt sentences | GPTZero | `ai_use_statement` level |
+|---|---|---|---|---|
+| Light (errors only) | 6 to 11% | 0 | Human, 3 of 3 | copy editing |
+| Middle (reworded in place) | 17 to 20% | 0 | Human, 3 of 3 | language revision |
+| Heavy (sentences rebuilt) | 36 to 41% | 4 to 5 | AI, 3 of 3 | substantial rewriting or generated text |
 
-The facts were the same in every version. Only the amount of rewording differed. So for a draft you
-wrote yourself, this fork fixes errors and AI patterns inside your sentences and does not rebuild them.
-The test is small (one writer, one detector, one day), so read the budget as a guide.
+The facts were the same in every version. Only the amount of rewording differed. The test is small
+(one writer, one detector, one day), so read the budget as a guide.
+
+Published research points the same way. A 2026 study from Google DeepMind
+([How LLMs Distort Our Written Language](https://arxiv.org/abs/2603.18161)) found that when LLMs revise a
+person's essay they change its style and its meaning across the whole text, even when asked only for
+grammar edits, while human editors make small, targeted changes that keep the author's voice. Pangram's
+[EditLens](https://arxiv.org/abs/2510.03154) showed that the amount of AI editing in a text can itself
+be detected. More in [docs/related-work.md](docs/related-work.md).
 
 ### What this fork does not do
 
 - It does not make AI-written text human-written. Detectors are trained on rewritten AI text, and a
   model rewording a model's draft is still a model's draft. For such a draft the skill removes the
   patterns that read badly and asks you for what only you know: your example, your measurement, your
-  opinion, in your words.
+  opinion, in your words. `find_generic` picks the paragraphs worth a question.
+- It does not use detector-evasion tricks: no translation chains, no hidden characters, no look-alike
+  letters, no rewriting against a detector's score. Those lower quality, and detectors are trained on
+  them.
 - It does not predict GPTZero, Turnitin or any other commercial detector. The built-in `score_text`
   is an optional local estimate.
-- It does not decide what you must disclose. If a university, client or journal asks how a text was
-  written, describe it as what it is.
+- It does not decide what you must disclose. `ai_use_statement` drafts a statement from what it
+  measured; the rules of your university, client or journal decide what is required.
 
 Everything below this line is the original Humanizer documentation.
 

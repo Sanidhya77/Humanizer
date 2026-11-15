@@ -37,45 +37,53 @@ Short version: a small test, one writer, one detector, one day. The pattern was 
 | 2 | heavy | 41.2 | 34.3 | 5 | **AI 100%** |
 | 2 | inserted | 45.1 | 36.4 | 5 | **Mixed 100%** |
 | 3 | raw | 0 | 100 | 0 | Human 100% |
-| 3 | light | 11.3 | 83.4 | 0 | Human 100% |
-| 3 | middle | 20.5 | 74.6 | 0 | Human 100% |
-| 3 | heavy | 36.3 | 51.2 | 5 | **AI 100%** |
-| 3 | inserted | 53.9 | 42.2 | 7 | **Mixed 100%** |
+| 3 | light | 10.6 | 85.4 | 0 | Human 100% |
+| 3 | middle | 20.1 | 76.0 | 0 | Human 100% |
+| 3 | heavy | 35.9 | 52.5 | 5 | **AI 100%** |
+| 3 | inserted | 53.7 | 43.0 | 7 | **Mixed 100%** |
 
 ## What the test shows
 
-1. **The amount of rewording decided the label.** The facts and the paragraph order were the same in the light, middle and heavy versions. Up to 20.5% reworded, all six edited texts were classed Human. From 36.3%, all three were classed AI.
+1. **The amount of rewording decided the label.** The facts and the paragraph order were the same in the light, middle and heavy versions. Up to 20.1% reworded, all six edited texts were classed Human. From 35.9%, all three were classed AI.
 
 2. **Rebuilt sentences separate the two groups cleanly.** Every text classed Human had zero rebuilt sentences. Every heavy version had four or five. In this data that is a sharper line than the percentage.
 
 3. **The first warning came at 17%.** Draft 1's middle version was the only edited text with a non-zero AI share (14%).
 
-4. **Nothing was tested between 20.5% and 36.3%.** The point where the label flips is somewhere in that gap.
+4. **Nothing was tested between 20.1% and 35.9%.** The point where the label flips is somewhere in that gap.
 
-5. **Typed-in sentences moved an AI draft to "Mixed" in two of three cases.** With 36% and 42% of the words being the writer's, the text was classed Mixed. With 41% it stayed AI. Three texts cannot say how much is enough.
+5. **Typed-in sentences moved an AI draft to "Mixed" in two of three cases.** With 36% and 43% of the words being the writer's, the text was classed Mixed. With 41% it stayed AI. Three texts cannot say how much is enough.
 
 ## How the budgets were set
 
 | Setting | Value | Reason |
 |---|---|---|
-| `light` | 12% per paragraph | The three light versions measured 6.4 to 11.3%. A correction pass on a rough draft fits. |
-| `normal` | 20% per paragraph | The highest level that was tested and stayed Human (17.0, 17.0, 20.5%). |
-| `heavy` zone | 30% and more | Below the lowest AI result (36.3%), inside the untested gap. |
+| `light` | 12% per paragraph | The three light versions measured 6.4 to 10.6%. A correction pass on a rough draft fits. |
+| `normal` | 20% per paragraph | The highest level that was tested and stayed Human (17.0, 17.0, 20.1%). |
+| `heavy` zone | 30% and more | Below the lowest AI result (35.9%), inside the untested gap. |
 | Rebuilt sentences | none | See point 2. `ok` is false as soon as one sentence is rebuilt. |
 
 The budget applies per paragraph, because a document at 15% on average can hide a few fully rewritten paragraphs. Paragraphs under 25 words are measured but not held to it.
 
 ## Why spelling fixes are set aside
 
-Fixing "teh" to "the" changes a whole word but none of the writer's choices. On these drafts, spelling fixes alone changed 25 to 40% of the words. A budget in plain word counts would be used up before any editing started. So `measure_change` first finds the corrections (small edit distance, split or joined words), applies them to the original, and measures what is left.
+Fixing "teh" to "the" changes a whole word but none of the writer's choices. On these drafts, spelling fixes alone changed 25 to 40% of the words. A budget in plain word counts would be used up before any editing started. So `measure_change` first finds the corrections (small edit distance, the same letters in another order, another ending on the same word, split or joined words), applies them to the original, and measures what is left.
 
 A changed number is never treated as a correction.
+
+## What the other measures showed on the same texts
+
+`measure_change` also reports word swaps and style drift. Run on the 12 edited texts:
+
+- **Word swaps** (one word replaced by another): 0 to 3 in the light and middle versions, 1 to 5 in the heavy ones. The groups overlap, so swaps are reported as something to undo, not as a test.
+- **Style drift** (the edit added overused words or dashes, wrote out contractions, removed "I", added abstract nouns, lengthened words, evened out sentence length): no flag on any of the nine edits of the writer's own text, and one to three flags on two of the three "inserted" versions, which are mostly AI-written. Drift picks up text a model composed. It does not tell a light edit from a heavy one; the reworded share and the rebuilt sentences do that.
 
 ## What other work says
 
 - **GPTZero's own description of "AI Polished".** GPTZero built that class from human texts that an LLM was asked to polish or rewrite, and kept only samples inside an edit-distance window. Samples too close to the original looked like the Human class, and samples too far looked like the AI class. That is the same shape as the results above. Source: [Behind the Scenes: Introducing "AI Polished"](https://gptzero.me/news/behind-the-scenes-introducing-lightly-edited-by-ai/).
 - **GPTZero technical report (2026).** Of 4,631 polished texts, about 90% were labelled Polished. The ones mislabelled as plain AI were those that differed most from the human original. Source: [arXiv:2602.13042](https://arxiv.org/abs/2602.13042).
 - **Saha and Feizi (2025), "Almost AI, Almost Human".** Eleven detectors on 11.7K human texts polished to different degrees. Many detectors flagged even minimal polishing, and did not separate minor from major polishing well. This is the main reason not to read the budget as a guarantee: the kind of change matters, not only its size. A polish that swaps plain words for "better" ones can be flagged at a small percentage. Source: [arXiv:2502.15666](https://arxiv.org/abs/2502.15666).
+- **EditLens (Pangram, ICLR 2026).** A detector trained to output how much AI editing a text has had, as a continuous score. The authors show that AI-edited text can be told apart from both human and AI text, and that the amount of editing can be estimated from the edited text alone. Typo-level fixes were treated as human in its training, and Grammarly's "Fix any mistakes" produced the smallest edits in their case study. This supports the same split used here: correcting is one thing, rewording another. Source: [arXiv:2510.03154](https://arxiv.org/abs/2510.03154).
 - **DAMAGE (2025).** A humanizer fine-tuned against a detector was still detected 93% of the time. Rewriting AI text does not make it read as human-written to a current detector. Source: [ACL Anthology](https://aclanthology.org/2025.genaidetect-1.9.pdf).
 
 ## Limits
